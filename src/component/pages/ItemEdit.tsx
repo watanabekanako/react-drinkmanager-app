@@ -1,3 +1,5 @@
+import { useParams } from 'react-router-dom';
+import { FC, memo } from 'react';
 import DefaultLayout from "../layout/defaultLayout";
 import TextField from "@mui/material/TextField";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
@@ -8,8 +10,11 @@ import Button from "@mui/material/Button";
 import { useState } from "react";
 import {PrimaryButton} from "../button/Button"
 
-function ItemEdit() {
-//   const navigate = useNavigate();
+type Props = {};
+
+const ItemEdit: FC<Props> = memo((props) => {
+  const { id } = useParams();
+  //   const navigate = useNavigate();
   const [itemName, setItemName] = useState("既存の商品名")
   const [itemDescription, setItemDescription] = useState("既存の商品名")
   const onClickCanselModal = () => {
@@ -22,7 +27,8 @@ function ItemEdit() {
     }
   };
   return (
-    <DefaultLayout>
+    <>
+      <DefaultLayout>
       <TextField
         id="itemName"
         label="商品名"
@@ -64,7 +70,8 @@ function ItemEdit() {
         確定
       </Button>
     </DefaultLayout>
+    </>
   );
-}
+});
 
 export default ItemEdit;

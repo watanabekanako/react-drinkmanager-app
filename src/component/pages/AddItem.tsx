@@ -1,3 +1,4 @@
+import { FC, memo } from 'react';
 import DefaultLayout from "../layout/defaultLayout";
 import TextField from "@mui/material/TextField";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
@@ -7,16 +8,19 @@ import Button from "@mui/material/Button";
 import {PrimaryButton, SecondaryButton} from "../button/Button"
 // import { useNavigate } from 'react-router-dom';
 
-function AddItem() {
-    // const navigate = useNavigate();
-    const onClickCansel = () => {
-      const canselOrNot = window.confirm('キャンセルすると内容は破棄されますがよろしいですか？');
-      if(canselOrNot) {
-        // navigate(-1);
-        console.log("前ページに戻る")
-      } 
-    }
+type Props = {};
+
+const AddItem: FC<Props> = memo((props) => {
+      // const navigate = useNavigate();
+      const onClickCansel = () => {
+        const canselOrNot = window.confirm('キャンセルすると内容は破棄されますがよろしいですか？');
+        if(canselOrNot) {
+          // navigate(-1);
+          console.log("前ページに戻る")
+        } 
+      }
   return (
+    <>
     <DefaultLayout>
       <TextField id="itemName" label="商品名" variant="outlined" required />
       <TextareaAutosize
@@ -50,7 +54,8 @@ function AddItem() {
       </Button>
 
     </DefaultLayout>
-  );
-}
+    </>
+  )
+});
 
 export default AddItem;
