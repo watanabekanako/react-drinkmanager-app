@@ -1,65 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
-import OutlinedInput from "@mui/material/OutlinedInput";
 
-const PrimaryInput = ({ label, placeHolder }: any) => {
+const PrimaryInput = ({
+  type,
+  label,
+  placeHolder,
+  helperText,
+  errorInput,
+  ...props
+}: any) => {
   return (
     <>
-      ①
       <TextField
         id="outlined-basic"
-        label="メールアドレス"
+        type={type}
+        label={label}
         variant="outlined"
-        placeholder="メールアドレスを入力してください"
+        placeholder={placeHolder}
         margin="normal"
+        helperText={helperText}
         fullWidth
-      />
-      ②
-      <label>
-        <p>
-          メールアドレス<span>※必須</span>
-        </p>
-        <TextField
-          id="outlined-basic"
-          variant="outlined"
-          placeholder="メールアドレスを入力してください"
-          fullWidth
-        />
-        <p>✅〜文字以上</p>
-        <p>✅記号不可</p>
-      </label>
-      ③
-      <TextField
-        name="taskName"
-        label="メールアドレス"
-        helperText="記号不可"
-        margin="normal"
-        placeholder="メールアドレスを入力してください"
-        fullWidth
-        InputLabelProps={{ shrink: true }}
-      />
-      ④
-      <TextField
-        name="taskName"
-        label="メールアドレス"
-        helperText="40文字以内で入力してください"
-        margin="normal"
-        placeholder="メールアドレスを入力してください"
-        fullWidth
-        InputLabelProps={{ shrink: true }}
-        error
+        error={errorInput}
+        {...props}
       />
     </>
   );
 };
 
-const SecondaryInput = ({ label, placeHolder }: any) => {
+const SecondaryInput = ({
+  type,
+  label,
+  placeHolder,
+  helperText,
+  errorInput,
+  ...props
+}: any) => {
   return (
     <TextField
       id="outlined-basic"
+      type={type}
       label={label}
       variant="outlined"
       placeholder={placeHolder}
+      margin="normal"
+      helperText={helperText}
+      error={errorInput}
+      {...props}
     />
   );
 };
