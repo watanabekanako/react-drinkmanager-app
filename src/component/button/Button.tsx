@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@mui/material/Button";
 
-const PrimaryButton = ({ children, ...props }: any) => {
+ const PrimaryButton = ({ children, ...props }: any) => {
   return (
     <Button variant="contained" color="primary" {...props}>
       {children}
