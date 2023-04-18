@@ -11,6 +11,9 @@ import Typography from "@mui/material/Typography";
 import DefaultLayout from "./component/layout/defaultLayout";
 import { PrimaryButton, SecondaryButton } from "./component/button/Button";
 import Grid from "@mui/material/Grid";
+
+import TransitionsModal from "./component/TransitionsModal";
+
 function App() {
   const handleClick = () => {};
   return (
@@ -26,7 +29,11 @@ function App() {
         <Paper elevation={3} />
       </Box>
       <DefaultLayout>
-        <Grid container spacing={2}>
+      <TransitionsModal title="Modal" content="モーダルです">
+      
+      </TransitionsModal>
+
+        {/* <Grid container spacing={2}>
           <Grid item xs={4}>
             <Box>
               <Card
@@ -113,8 +120,8 @@ function App() {
                 </Typography>
               </Card>
             </Box>
-          </Grid>
-        </Grid>
+          </Grid> */}
+        {/* </Grid> */}
         <PrimaryButton
           onClick={handleClick}
           sx={{

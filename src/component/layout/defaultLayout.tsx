@@ -222,7 +222,7 @@ function DefaultLayout({ children }: { children: any }) {
             </Item>
           </Grid>
           <Grid item xs={9}>
-            <Item>{children} </Item>
+            {children}
           </Grid>
         </Grid>
       </Container>
