@@ -1,18 +1,18 @@
-import DefaultLayout from "../layout/defaultLayout";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
+import DefaultLayout from '../layout/defaultLayout';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
 // import { useNavigate } from "react-router-dom";
-import { PrimaryButton, SecondaryButton } from "../button/Button";
-import { CardActionArea } from "@mui/material";
+import { PrimaryButton, SecondaryButton } from '../button/Button';
+import { CardActionArea } from '@mui/material';
 
 function ItemDetails() {
   // const navigate = useNavigate();
   const onClickItemDelete = () => {
-    const deleteOrNot = window.confirm("本当に商品を削除しますか？");
+    const deleteOrNot = window.confirm('本当に商品を削除しますか？');
     if (deleteOrNot) {
       // navigate('/home');
     }
@@ -21,7 +21,7 @@ function ItemDetails() {
     <DefaultLayout>
       <Box
         sx={{
-          display: { xs: "flex" },
+          display: { xs: 'flex' },
         }}
       >
         <Card sx={{ maxWidth: 345 }}>
@@ -58,9 +58,9 @@ function ItemDetails() {
             こちらの商品に関連する投稿はこちら
           </Typography>
 
-          <Card sx={{ display: "flex" }}>
-            <Box sx={{ display: "flex" }}>
-              <CardContent sx={{ flex: "1 0 auto" }}>
+          <Card sx={{ display: 'flex' }}>
+            <Box sx={{ display: 'flex' }}>
+              <CardContent sx={{ flex: '1 0 auto' }}>
                 <Typography variant="subtitle1" component="div">
                   投稿内容
                 </Typography>
@@ -81,9 +81,9 @@ function ItemDetails() {
         href="/itemedit"
         sx={{
           my: 2,
-          color: "black",
-          display: "block",
-          backgroundColor: "white",
+          color: 'black',
+          display: 'block',
+          backgroundColor: 'white',
         }}
       >
         商品を編集
@@ -94,9 +94,9 @@ function ItemDetails() {
         onClick={onClickItemDelete}
         sx={{
           my: 2,
-          color: "black",
-          display: "block",
-          backgroundColor: "white",
+          color: 'black',
+          display: 'block',
+          backgroundColor: 'white',
         }}
       >
         商品を削除

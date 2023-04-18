@@ -8,7 +8,6 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import DefaultLayout from "./layout/defaultLayout";
 import Grid from "@mui/material/Grid";
 import { PrimaryButton } from "./button/Button";
 import { Pagination } from "@mui/material";
@@ -25,127 +24,126 @@ const Itmesearch = () => {
         sx={{ background: "#fff" }}
       />
       <Box></Box>
-      <DefaultLayout>
-        <Card sx={{ m: 20, borderRadius: 10, p: 8 }}>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="div"
-            textAlign="center"
-            sx={{ m: 4 }}
-          >
-            みんなの投票で会社に設置してある ドリンクの種類がかわるよ！
-            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-          </Typography>
-        </Card>
-        <Grid container spacing={2}>
-          <Grid item xs={4}>
-            <Box>
-              <Card
-                sx={{
-                  maxWidth: 345,
-                  borderRadius: "12px",
-                  background: "#FF9900",
-                  color: "#fff",
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  alt="green "
-                  height="345"
-                  image="/item.jpg"
-                  sx={{ background: "#fff" }}
-                />
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  textAlign="center"
-                  sx={{ m: 4 }}
-                >
-                  テキストテキストテキスト
-                </Typography>
-              </Card>
-            </Box>
-          </Grid>
-          <Grid item xs={4}>
-            <Box>
-              <Card
-                sx={{
-                  maxWidth: 345,
-                  borderRadius: "12px",
-                  background: "#FF9900",
-                  color: "#fff",
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  alt="green "
-                  height="345"
-                  image="/item.jpg"
-                  sx={{ background: "#fff" }}
-                />
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  textAlign="center"
-                  sx={{ m: 4 }}
-                >
-                  テキストテキストテキスト
-                </Typography>
-              </Card>
-            </Box>
-          </Grid>
-          <Grid item xs={4}>
-            <Box>
-              <Card
-                sx={{
-                  maxWidth: 345,
-                  borderRadius: "12px",
-                  background: "#FF9900",
-                  color: "#fff",
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  alt="green "
-                  height="345"
-                  image="/item.jpg"
-                  sx={{ background: "#fff" }}
-                />
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  textAlign="center"
-                  sx={{ m: 4 }}
-                >
-                  テキストテキストテキスト
-                </Typography>
-              </Card>
-            </Box>
-          </Grid>
-        </Grid>
-        <PrimaryButton
-          onClick={handleClick}
-          sx={{
-            background: "linear-gradient(95deg, #ffc97a, #ff9900)",
-            my: 4,
-            borderRadius: 4,
-          }}
+
+      <Card sx={{ m: 20, borderRadius: 10, p: 8 }}>
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          textAlign="center"
+          sx={{ m: 4 }}
         >
-          Primary Button
-        </PrimaryButton>
-        {/* <Pagination sx={{ display: "flex", justifyContent: "center" }} /> */}
-        <Stack spacing={2}>
-          <Pagination
-            // 総ページ数
-            count={10}
-            sx={{ m: "auto", mt: 50 }}
-          />
-        </Stack>
-      </DefaultLayout>
+          みんなの投票で会社に設置してある ドリンクの種類がかわるよ！
+          テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+        </Typography>
+      </Card>
+      <Grid container spacing={2}>
+        <Grid item xs={4}>
+          <Box>
+            <Card
+              sx={{
+                maxWidth: 345,
+                borderRadius: "12px",
+                background: "#FF9900",
+                color: "#fff",
+              }}
+            >
+              <CardMedia
+                component="img"
+                alt="green "
+                height="345"
+                image="/item.jpg"
+                sx={{ background: "#fff" }}
+              />
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                textAlign="center"
+                sx={{ m: 4 }}
+              >
+                テキストテキストテキスト
+              </Typography>
+            </Card>
+          </Box>
+        </Grid>
+        <Grid item xs={4}>
+          <Box>
+            <Card
+              sx={{
+                maxWidth: 345,
+                borderRadius: "12px",
+                background: "#FF9900",
+                color: "#fff",
+              }}
+            >
+              <CardMedia
+                component="img"
+                alt="green "
+                height="345"
+                image="/item.jpg"
+                sx={{ background: "#fff" }}
+              />
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                textAlign="center"
+                sx={{ m: 4 }}
+              >
+                テキストテキストテキスト
+              </Typography>
+            </Card>
+          </Box>
+        </Grid>
+        <Grid item xs={4}>
+          <Box>
+            <Card
+              sx={{
+                maxWidth: 345,
+                borderRadius: "12px",
+                background: "#FF9900",
+                color: "#fff",
+              }}
+            >
+              <CardMedia
+                component="img"
+                alt="green "
+                height="345"
+                image="/item.jpg"
+                sx={{ background: "#fff" }}
+              />
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                textAlign="center"
+                sx={{ m: 4 }}
+              >
+                テキストテキストテキスト
+              </Typography>
+            </Card>
+          </Box>
+        </Grid>
+      </Grid>
+      <PrimaryButton
+        onClick={handleClick}
+        sx={{
+          background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+          my: 4,
+          borderRadius: 4,
+        }}
+      >
+        Primary Button
+      </PrimaryButton>
+      {/* <Pagination sx={{ display: "flex", justifyContent: "center" }} /> */}
+      <Stack spacing={2}>
+        <Pagination
+          // 総ページ数
+          count={10}
+          sx={{ m: "auto", mt: 50 }}
+        />
+      </Stack>
     </>
   );
 };

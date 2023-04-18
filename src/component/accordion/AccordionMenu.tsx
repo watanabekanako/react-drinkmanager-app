@@ -1,24 +1,10 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import { useState } from "react";
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import { styled } from "@mui/material/styles";
-import { PrimaryButton } from "../button/Button";
+
 const AccordionMenu = () => {
   const [expanded, setExpanded] = useState(null);
 
@@ -29,12 +15,14 @@ const AccordionMenu = () => {
     <>
       {/* アコーディオンメニュー */}
       <div>
-        <Typography variant="h5" textAlign="center">
-          - PRODUCTS -
-        </Typography>
-        <Typography variant="h6" textAlign="center">
-          商品一覧
-        </Typography>
+        <Box className="productTtl">
+          <Typography variant="h5" textAlign="center">
+            - PRODUCTS -
+          </Typography>
+          <Typography variant="h6" textAlign="center" sx={{ mb: 4 }}>
+            商品一覧
+          </Typography>
+        </Box>
         <Accordion
           expanded={expanded === "panel1"}
           onChange={handleChange("panel1")}
@@ -46,11 +34,45 @@ const AccordionMenu = () => {
           >
             コーヒー
           </AccordionSummary>
-          <AccordionSummary aria-controls="panel2a-content" id="panel2a-header">
-            Second Accordion
+          <AccordionSummary
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+            sx={{
+              borderTop: "2px dashed #ea6f00",
+              borderBottom: "2px dashed #ea6f00",
+            }}
+          >
+            ダーク（深煎り）
           </AccordionSummary>
-          <AccordionSummary aria-controls="panel2a-content" id="panel2a-header">
-            Second Accordion
+          <AccordionSummary
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+            sx={{
+              borderBottom: "2px dashed #ea6f00",
+            }}
+          >
+            ミディアム（中煎り）
+          </AccordionSummary>
+          <AccordionSummary
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+            sx={{
+              borderBottom: "2px dashed #ea6f00",
+            }}
+          >
+            ライト（浅煎り）
+          </AccordionSummary>
+          <AccordionSummary
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+            sx={{
+              borderBottom: "2px dashed #ea6f00",
+            }}
+          >
+            カフェインレス
+          </AccordionSummary>
+          <AccordionSummary id="panel2a-header">
+            すべてのコーヒー
           </AccordionSummary>
         </Accordion>
         <Accordion
@@ -62,34 +84,34 @@ const AccordionMenu = () => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            コーヒー
+            ティー・ココア
           </AccordionSummary>
 
           <AccordionSummary
             // expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
             id="panel2a-header"
+            sx={{
+              borderBottom: "2px dashed #ea6f00",
+              borderTop: "2px dashed #ea6f00",
+            }}
           >
-            ダーク（深煎り）
+            ティー
+          </AccordionSummary>
+          <AccordionSummary
+            // expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+            sx={{
+              borderBottom: "2px dashed #ea6f00",
+            }}
+          >
+            その他
           </AccordionSummary>
         </Accordion>
-        <Accordion
-          expanded={expanded === "panel1"}
-          onChange={handleChange("panel1")}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            すべての商品
-          </AccordionSummary>
-          <AccordionSummary aria-controls="panel2a-content" id="panel2a-header">
-            Second Accordion
-          </AccordionSummary>
-          <AccordionSummary aria-controls="panel2a-content" id="panel2a-header">
-            Second Accordion
-          </AccordionSummary>
+
+        <Accordion sx={{ m: 0 }}>
+          <AccordionSummary id="panel1a-header">すべての商品</AccordionSummary>
         </Accordion>
       </div>
     </>

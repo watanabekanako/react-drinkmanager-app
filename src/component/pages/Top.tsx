@@ -27,7 +27,7 @@ const Top: FC<Props> = memo((props) => {
         />
         <Box></Box>
         <DefaultLayout>
-          <Card sx={{ m: 20, borderRadius: 10, p: 8 }}>
+          <Card sx={{ mb: 20, mx: 10, borderRadius: 10, p: 8 }}>
             <Typography
               gutterBottom
               variant="h5"
@@ -37,8 +37,33 @@ const Top: FC<Props> = memo((props) => {
             >
               みんなの投票で会社に設置してある ドリンクの種類がかわるよ！
               テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+              テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
             </Typography>
           </Card>
+          <Card sx={{ m: 10, p: 2 }}>
+            {/* <Typography
+              gutterBottom
+              variant="h4"
+              component="div"
+              textAlign="center"
+              sx={{ my: 1, py: 4 }}
+              className="ttlUnder"
+            >
+              投票ランキング
+            </Typography> */}
+          </Card>
+          <PrimaryButton
+            // onClick={handleClick}
+            sx={{
+              background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+              borderRadius: 4,
+              textAlign: "center",
+              display: "block",
+              margin: "auto",
+            }}
+          >
+            Primary Button
+          </PrimaryButton>
           <Grid container spacing={2}>
             <Grid item xs={4}>
               <Box>
@@ -132,8 +157,11 @@ const Top: FC<Props> = memo((props) => {
             // onClick={handleClick}
             sx={{
               background: "linear-gradient(95deg, #ffc97a, #ff9900)",
-              my: 4,
+              my: 2,
               borderRadius: 4,
+              textAlign: "center",
+              display: "block",
+              margin: "auto",
             }}
           >
             Primary Button
