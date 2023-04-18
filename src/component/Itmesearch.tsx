@@ -1,6 +1,5 @@
-import { FC, memo } from "react";
 import React from "react";
-// import "./App.css";
+import "./App.css";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -9,14 +8,13 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import DefaultLayout from "../layout/defaultLayout";
+import DefaultLayout from "./layout/defaultLayout";
 import Grid from "@mui/material/Grid";
-import { PrimaryButton } from "../button/Button";
+import { PrimaryButton } from "./button/Button";
 import { Pagination } from "@mui/material";
 import Stack from "@mui/material/Stack";
-type Props = {};
-
-const ItemSearch: FC<Props> = memo((props) => {
+const Itmesearch = () => {
+  const handleClick = () => {};
   return (
     <>
       <CardMedia
@@ -130,7 +128,7 @@ const ItemSearch: FC<Props> = memo((props) => {
           </Grid>
         </Grid>
         <PrimaryButton
-          // onClick={handleClick}
+          onClick={handleClick}
           sx={{
             background: "linear-gradient(95deg, #ffc97a, #ff9900)",
             my: 4,
@@ -150,6 +148,6 @@ const ItemSearch: FC<Props> = memo((props) => {
       </DefaultLayout>
     </>
   );
-});
+};
 
-export default ItemSearch;
+export default Itmesearch;
