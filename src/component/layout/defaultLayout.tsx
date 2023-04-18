@@ -13,11 +13,19 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useState } from "react";
-import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  TextField,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
+import { PrimaryButton } from "../button/Button";
+import AccordionMenu from "../accordion/AccordionMenu";
+
 const pages = [
   { label: "Top", href: "/" },
   { label: "About", href: "/#about" },
@@ -48,11 +56,7 @@ function DefaultLayout({ children }: { children: any }) {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const [expanded, setExpanded] = useState(null);
 
-  const handleChange = (panel: any) => (event: any, newExpanded: any) => {
-    setExpanded(newExpanded ? panel : false);
-  };
   const styles = {
     appBar: {
       background: "linear-gradient(95deg, #ffc97a, #ff9900)",
@@ -67,9 +71,16 @@ function DefaultLayout({ children }: { children: any }) {
   }));
   return (
     <React.Fragment>
-      <Paper>
-        こんにちは
-        <Button>管理者用TOP</Button>
+      <Paper sx={{ p: 2, display: "flex", justifyContent: "space-between" }}>
+        <Typography>こんにちは〇〇さん</Typography>
+        <PrimaryButton
+          sx={{
+            background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+            borderRadius: 4,
+          }}
+        >
+          管理者用TOP
+        </PrimaryButton>
       </Paper>
       <AppBar position="static" sx={styles.appBar}>
         <Container maxWidth="xl">
@@ -170,63 +181,34 @@ function DefaultLayout({ children }: { children: any }) {
         </Container>
       </AppBar>
 
-      <Container maxWidth="xl" sx={{ marginBottom: "100" }}>
+      <Container maxWidth="xl" sx={{ my: 20 }}>
         <Grid container spacing={2}>
           <Grid item xs={3}>
-            <Item>
-              <div>
-                <Accordion
-                  expanded={expanded === "panel1"}
-                  onChange={handleChange("panel1")}
-                >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    First Accordion
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Accordion
-                      expanded={expanded === "panel2"}
-                      onChange={handleChange("panel2")}
-                    >
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel2a-content"
-                        id="panel2a-header"
-                      >
-                        Second Accordion
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <Accordion
-                          expanded={expanded === "panel3"}
-                          onChange={handleChange("panel3")}
-                        >
-                          <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel3a-content"
-                            id="panel3a-header"
-                          >
-                            Third Accordion
-                          </AccordionSummary>
-                          <AccordionDetails>
-                            Third Accordion Details
-                          </AccordionDetails>
-                        </Accordion>
-                      </AccordionDetails>
-                    </Accordion>
-                  </AccordionDetails>
-                </Accordion>
-              </div>
-            </Item>
+            <AccordionMenu />
+            <Box>
+              <TextField />
+            </Box>
+
+            <PrimaryButton
+              sx={{
+                background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+              }}
+            >
+              検索する
+            </PrimaryButton>
           </Grid>
+
           <Grid item xs={9}>
-            <Item>{children} </Item>
+            {/* <Item>{children} </Item> */}
+            {children}
           </Grid>
         </Grid>
       </Container>
-      <Box className={"footer"}></Box>
+      <Paper sx={{ display: "flex" }}>
+        <Typography>ご利用ガイド</Typography>
+        <Typography>お問い合わせ</Typography>
+        <Typography>投票</Typography>
+      </Paper>
     </React.Fragment>
   );
 }

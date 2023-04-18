@@ -8,12 +8,12 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import DefaultLayout from "./component/layout/defaultLayout";
+import DefaultLayout from "./layout/defaultLayout";
 import Grid from "@mui/material/Grid";
-import { PrimaryButton } from "./component/button/Button";
+import { PrimaryButton } from "./button/Button";
 import { Pagination } from "@mui/material";
-
-const App = () => {
+import Stack from "@mui/material/Stack";
+const Itmesearch = () => {
   const handleClick = () => {};
   return (
     <>
@@ -26,9 +26,18 @@ const App = () => {
       />
       <Box></Box>
       <DefaultLayout>
-        <Typography>検索結果：24件( 1件 ～ 24件目 表示)</Typography>
-        <Typography>testの検索結果一覧</Typography>
-        <Typography> 検索に一致する商品はありませんでした。</Typography>
+        <Card sx={{ m: 20, borderRadius: 10, p: 8 }}>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            textAlign="center"
+            sx={{ m: 4 }}
+          >
+            みんなの投票で会社に設置してある ドリンクの種類がかわるよ！
+            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+          </Typography>
+        </Card>
         <Grid container spacing={2}>
           <Grid item xs={4}>
             <Box>
@@ -128,10 +137,17 @@ const App = () => {
         >
           Primary Button
         </PrimaryButton>
-        <Pagination count={10} color="primary" />
+        {/* <Pagination sx={{ display: "flex", justifyContent: "center" }} /> */}
+        <Stack spacing={2}>
+          <Pagination
+            // 総ページ数
+            count={10}
+            sx={{ m: "auto", mt: 50 }}
+          />
+        </Stack>
       </DefaultLayout>
     </>
   );
 };
 
-export default App;
+export default Itmesearch;
