@@ -4,14 +4,14 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { PrimaryButton } from "../button/Button";
 
-const PollCard = () => {
+
+const ItemCard = () => {
   return (
     <>
       <Card
         sx={{
-          maxWidth: 250,
+          width: 270,
           m: 2,
           boxShadow: "none",
           borderStyle: "solid 1.5px",
@@ -95,4 +95,4 @@ const PollCard = () => {
   );
 };
 
-export default PollCard;
+export default ItemCard;
