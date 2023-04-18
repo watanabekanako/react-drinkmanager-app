@@ -11,8 +11,6 @@ import Typography from "@mui/material/Typography";
 import DefaultLayout from "./component/layout/defaultLayout";
 import { PrimaryButton, SecondaryButton } from "./component/button/Button";
 import Grid from "@mui/material/Grid";
-import PollCard from "./component/card/PollCard";
-import ItemCard from "./component/card/ItemCard";
 function App() {
   const handleClick = () => {};
   return (
@@ -26,8 +24,6 @@ function App() {
       />
       <Box>
         <Paper elevation={3} />
-        <PollCard/>
-        <ItemCard/>
       </Box>
       <DefaultLayout>
         <Grid container spacing={2}>
