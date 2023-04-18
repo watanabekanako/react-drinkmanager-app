@@ -11,11 +11,16 @@ import Typography from "@mui/material/Typography";
 import DefaultLayout from "./component/layout/defaultLayout";
 import { PrimaryButton, SecondaryButton } from "./component/button/Button";
 import Grid from "@mui/material/Grid";
+
+import ItemDetails from "./component/pages/ItemDetails";
+import AddItem from "./component/pages/AddItem";
+import ItemEdit from "./component/pages/ItemEdit";
+
 function App() {
   const handleClick = () => {};
   return (
     <>
-      <CardMedia
+      {/* <CardMedia
         component="img"
         alt="green "
         height="500"
@@ -125,7 +130,8 @@ function App() {
         >
           Primary Button
         </PrimaryButton>
-      </DefaultLayout>
+      </DefaultLayout> */}
+      <ItemDetails />
     </>
   );
 }
