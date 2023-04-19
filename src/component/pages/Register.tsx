@@ -51,37 +51,44 @@ const Register: FC<Props> = memo((props) => {
       <Box sx={{ textAlign: "left" }}>
         <Box sx={{ textAlign: "center" }}>
           <h1>会員登録</h1>
+          <p>*は必須入力項目です</p>
         </Box>
 
         <SecondaryInput
           type="text"
-          label="社員ID"
+          label="社員ID*"
           placeHolder="例）0000"
           helperText={errorId ? "社員IDを入力してください" : ""}
           errorInput={errorId}
           onBlur={idBlur}
         />
-        <Stack direction="row" sx={{ backgroundColor: "pink" }} spacing={5}>
-          <SecondaryInput
-            type="text"
-            label="姓"
-            placeHolder="例）ラクス"
-            helperText={errorFirstName ? "姓を入力してください" : ""}
-            errorInput={errorFirstName}
-            onBlur={firstNameBlur}
-          />
-          <SecondaryInput
-            type="text"
-            label="名"
-            placeHolder="例）太郎"
-            helperText={errorLastName ? "名を入力してください" : ""}
-            errorInput={errorLastName}
-            onBlur={lastNameBlur}
-          />
+        <Stack direction="row" sx={{ alignItems: "flex-end" }} spacing={2}>
+          <Box sx={{ flexGrow: 1 }}>
+            <SecondaryInput
+              type="text"
+              label="姓*"
+              placeHolder="例）ラクス*"
+              helperText={errorFirstName ? "姓を入力してください" : ""}
+              errorInput={errorFirstName}
+              onBlur={firstNameBlur}
+              style={{ height: "100%" }}
+            />
+          </Box>
+          <Box sx={{ flexGrow: 1 }}>
+            <SecondaryInput
+              type="text"
+              label="名*"
+              placeHolder="例）太郎"
+              helperText={errorLastName ? "名を入力してください" : ""}
+              errorInput={errorLastName}
+              onBlur={lastNameBlur}
+              style={{ height: "100%" }}
+            />
+          </Box>
         </Stack>
         <PrimaryInput
           type="text"
-          label="メールアドレス"
+          label="メールアドレス*"
           placeHolder="例）example@example.com"
           helperText={errorMail ? "メールアドレスを入力してください" : ""}
           errorInput={errorMail}
@@ -120,7 +127,7 @@ const Register: FC<Props> = memo((props) => {
         )}
         <PrimaryInput
           type="password"
-          label="確認用パスワード"
+          label="確認用パスワード*"
           placeHolder="確認用パスワード"
           helperText={
             errorConfirmPass ? "確認用パスワードを入力してください" : ""
