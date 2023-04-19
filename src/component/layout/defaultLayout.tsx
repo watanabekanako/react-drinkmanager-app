@@ -37,7 +37,15 @@ function DefaultLayout({ children }: { children: any }) {
           <Grid item xs={3}>
             <AccordionMenu />
             {/* 検索ボタン */}
-            <Box sx={{ my: 10 }}>
+
+            <Typography
+              variant="h5"
+              textAlign="center"
+              sx={{ color: "#ea6f00", mt: 10 }}
+            >
+              - キーワードで探す -
+            </Typography>
+            <Box sx={{ mb: 10 }}>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
@@ -54,6 +62,12 @@ function DefaultLayout({ children }: { children: any }) {
               >
                 検索する
               </PrimaryButton>
+              <Box sx={{ my: 4 }}>
+                <img src="/dummybanner.jpg" style={{ maxWidth: "100%" }} />
+              </Box>
+              <Box>
+                <img src="/dummybanner.jpg" style={{ maxWidth: "100%" }} />
+              </Box>
             </Box>
           </Grid>
 
@@ -63,6 +77,23 @@ function DefaultLayout({ children }: { children: any }) {
           </Grid>
         </Grid>
       </Container>
+      {/* チャットボット */}
+      <Box
+        sx={{
+          borderRadius: 20,
+          position: "fixed",
+          bottom: 20,
+          right: 10,
+          zIndex: 1,
+          width: 100,
+          height: 100,
+        }}
+      >
+        <img
+          src="/chatbot.png"
+          style={{ maxWidth: "100%", borderRadius: "20px" }}
+        />
+      </Box>
 
       <Footer />
     </React.Fragment>

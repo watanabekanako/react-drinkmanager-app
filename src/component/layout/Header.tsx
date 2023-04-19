@@ -57,7 +57,8 @@ const Header = () => {
 
   const styles = {
     appBar: {
-      background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+      background: "#f3bf88",
+      // background: "linear-gradient(95deg, #ffc97a, #ff9900)",
     },
   };
   const Item = styled(Paper)(({ theme }) => ({
@@ -69,17 +70,36 @@ const Header = () => {
   }));
   return (
     <>
-      <Paper sx={{ p: 2, display: "flex", justifyContent: "space-between" }}>
+      <Paper
+        sx={{
+          p: 2,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <Typography>こんにちは〇〇さん</Typography>
         <PrimaryButton
           sx={{
             background: "linear-gradient(95deg, #ffc97a, #ff9900)",
             borderRadius: 4,
+            marginLeft: 2,
           }}
         >
-          管理者用TOP
+          ログアウト
         </PrimaryButton>
+        <div style={{ marginLeft: "auto" }}>
+          <PrimaryButton
+            sx={{
+              background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+              borderRadius: 4,
+            }}
+          >
+            管理者用TOP
+          </PrimaryButton>
+        </div>
       </Paper>
+
       <AppBar position="static" sx={styles.appBar}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>

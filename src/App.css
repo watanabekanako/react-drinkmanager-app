@@ -37,20 +37,15 @@
   }
 }
 
-.ttlUnder {
+/* .ttlUnder {
   border-bottom: 6px dotted #ff9900;
   border-top: 6px dotted #ff9900;
-}
-.ttl {
+} */
+/* .ttl {
   border-bottom: 4px dashed #e4af9b;
   display: inline-block;
-}
-.drinkTtl {
-  padding: 0.5em; /*文字周りの余白*/
-  color: #494949; /*文字色*/
-  background: #fffaf4; /*背景色*/
-  border-left: solid 5px #ffaf58; /*左線（実線 太さ 色）*/
-}
+} */
+
 .productTtl {
   position: relative;
   color: #ea6f00;

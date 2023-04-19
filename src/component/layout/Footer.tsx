@@ -29,27 +29,37 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import { Paper } from "@mui/material";
 const Footer = () => {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        py: 3,
-        background: "linear-gradient(95deg, #ffc97a, #ff9900)",
-        color: "white",
-      }}
-    >
-      {/* <Box>
+    <>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          py: 3,
+          background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+          color: "white",
+        }}
+      >
         <Typography sx={{ mx: 2 }}>TOP</Typography>
         <Typography sx={{ mx: 2 }}>ご利用ガイド</Typography>
         <Typography sx={{ mx: 2 }}>お問い合わせ</Typography>
         <Typography sx={{ mx: 2 }}>投票</Typography>
-      </Box> */}
-
-      <Typography variant="body2" sx={{ mr: 1 }}>
-        © 2023 RakuCafe All rights reserved.
-      </Typography>
-    </Box>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          py: 3,
+          background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+          color: "white",
+        }}
+      >
+        <Typography variant="body2" sx={{ mr: 1 }}>
+          © 2023 RakuCafe All rights reserved.
+        </Typography>
+      </Box>
+    </>
   );
 };
 
