@@ -8,15 +8,24 @@ import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Box from "@mui/material/Box";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 type Props = {};
 
 const ItemEdit: FC<Props> = memo((props) => {
   const id = useParams();
   const navigate = useNavigate();
-  const [itemName, setItemName] = useState("既存の商品名");
-  const [itemDescription, setItemDescription] = useState("既存の商品説明");
+  const [itemName, setItemName] = useState(`既存の商品${id.id}`);
+  const [itemDescription, setItemDescription] = useState(
+    `既存の商品${id.id}の説明`
+  );
   const [itemCategory, setItemCategory] = useState(3);
+  const [itemImages, setItemImages] = useState([
+    { id: 1, value: "/item.png" },
+    { id: 2, value: "/item.png" },
+  ]);
   const onClickCanselModal = () => {
     const canselOrNotModal = window.confirm(
       "キャンセルすると内容は破棄されますがよろしいですか？"
@@ -26,6 +35,14 @@ const ItemEdit: FC<Props> = memo((props) => {
       console.log("前ページに戻る");
     }
   };
+
+  // 画像の削除機能
+  const onClickDeleteItemImage = (imageId: number) => {
+    const updatedItemImages = [...itemImages];
+    updatedItemImages.splice(imageId - 1, 1);
+    setItemImages(updatedItemImages);
+  };
+
   return (
     <>
       <TextField
@@ -38,6 +55,68 @@ const ItemEdit: FC<Props> = memo((props) => {
         sx={{ width: 360, mb: 5 }}
         inputProps={{ maxLength: 20 }}
       />
+
+      <Typography variant="body1" component="p" sx={{ mb: 1 }}>
+        商品画像 * 最大3枚まで
+      </Typography>
+
+      {/* ファイル選択 */}
+      <Box sx={{ display: "flex", mb: 5 }}>
+        {itemImages.map((item, index) => {
+          return (
+            <>
+              <Box sx={{ width: 300 }} key={index}>
+                <CardMedia
+                  component="img"
+                  image={item.value}
+                  alt="商品画像"
+                  sx={{ m: "auto", width: 200 }}
+                />
+                <div style={{ display: "flex" }}>
+                  <label htmlFor={item.id.toString()}>
+                    <Button
+                      key="item_edit_btn"
+                      variant="contained"
+                      sx={{
+                        my: 2,
+                        color: "white",
+                        display: "block",
+                        backgroundColor: "#EA6F00",
+                        fontWeight: 500,
+                        mr: 1,
+                      }}
+                    >
+                      変更
+                    </Button>
+                  </label>
+                  <Button
+                    key={item.id.toString()}
+                    variant="contained"
+                    onClick={() => onClickDeleteItemImage(item.id)}
+                    sx={{
+                      my: 2,
+                      color: "white",
+                      display: "block",
+                      backgroundColor: "gray",
+                      fontWeight: 500,
+                    }}
+                  >
+                    削除
+                  </Button>
+                </div>
+              </Box>
+            </>
+          );
+        })}
+        {itemImages.length <= 3 && (
+          <Box>
+            <button style={{ background: "none", border: "none" }}>
+              <AddCircleOutlineIcon sx={{ fontSize: 30, mt: 11 }} />
+            </button>
+          </Box>
+        )}
+      </Box>
+
       <TextField
         multiline
         aria-label="itemDescription"
@@ -71,6 +150,20 @@ const ItemEdit: FC<Props> = memo((props) => {
         <MenuItem value={6}>ティー、ココア/その他</MenuItem>
       </Select>
 
+      {itemName && itemDescription && itemImages.length > 0 ? (
+        <></>
+      ) : (
+        <>
+          <Typography
+            variant="body1"
+            component="div"
+            sx={{ mb: 1, mt: 3, color: "red" }}
+          >
+            全ての項目を入力、または選択して下さい
+          </Typography>
+        </>
+      )}
+
       <Box sx={{ display: "flex" }}>
         <Button
           key="canselBtn"
@@ -86,7 +179,7 @@ const ItemEdit: FC<Props> = memo((props) => {
         >
           キャンセル
         </Button>
-        {(itemName && itemDescription) ? (
+        {itemName && itemDescription && itemImages.length > 0 ? (
           <Button
             key="confirmBtn"
             href="/adminhome"
