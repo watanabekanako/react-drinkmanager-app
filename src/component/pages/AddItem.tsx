@@ -11,6 +11,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import Paper from "@mui/material/Paper";
 
 type Props = {};
 
@@ -55,6 +56,7 @@ const AddItem: FC<Props> = memo((props) => {
 
   return (
     <>
+    <Paper sx={{ p: 5, width: "80%", m: "auto"}}>
       <Typography
         variant="h5"
         component="div"
@@ -70,7 +72,7 @@ const AddItem: FC<Props> = memo((props) => {
         defaultValue={itemName}
         required
         onChange={(e) => setItemName(e.target.value)}
-        sx={{ width: 360, mb: 5 }}
+        sx={{ width: 400, mb: 5 }}
         inputProps={{ maxLength: 20 }}
       />
 
@@ -79,7 +81,7 @@ const AddItem: FC<Props> = memo((props) => {
       </Typography>
 
       {/* ファイル選択 */}
-      <Box sx={{ display: "flex", mb: 5, width: 900 }}>
+      <Box sx={{ display: "flex", mb: 5, width: 800 }}>
         {itemImages.map((item, index) => {
           return (
             <>
@@ -150,7 +152,7 @@ const AddItem: FC<Props> = memo((props) => {
         multiline
         aria-label="itemDescription"
         label="商品説明"
-        sx={{ width: 900, mb: 5 }}
+        sx={{ width: 800, mb: 5 }}
         inputProps={{ maxLength: 200 }}
         defaultValue={itemDescription}
         required
@@ -188,6 +190,7 @@ const AddItem: FC<Props> = memo((props) => {
           <Typography
             variant="body1"
             component="div"
+            textAlign="center"
             sx={{ mb: 1, mt: 3, color: "red" }}
           >
             全ての項目を入力、または選択して下さい
@@ -195,7 +198,7 @@ const AddItem: FC<Props> = memo((props) => {
         </>
       )}
 
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Button
           key="canselBtn"
           onClick={onClickCanselModal}
@@ -210,7 +213,7 @@ const AddItem: FC<Props> = memo((props) => {
         >
           キャンセル
         </Button>
-        {itemName && itemDescription && itemCategory !== 0 ? (
+        {itemName && itemDescription && itemCategory !== 0 && itemImages.length > 0 ? (
           <Button
             key="confirmBtn"
             href="/adminhome"
@@ -242,6 +245,7 @@ const AddItem: FC<Props> = memo((props) => {
           </>
         )}
       </Box>
+      </Paper>
     </>
   );
 });

@@ -5,6 +5,10 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
+import IconButton from "@material-ui/core/IconButton";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { PrimaryButton } from "../button/Button";
 import { PrimaryInput } from "../input/Input";
 
@@ -14,6 +18,7 @@ const AdminLogin: FC<Props> = memo((props) => {
   const [passText, setPassText] = useState(false);
   const [errorMail, setErrorMail] = useState(false);
   const [errorPass, setErrorPass] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const passFocus = () => {
     setPassText(true);
   };
@@ -31,23 +36,35 @@ const AdminLogin: FC<Props> = memo((props) => {
         <PrimaryInput
           type="text"
           label="メールアドレス"
-          placeHolder="例）example@example.com"
+          placeholder="例）example@example.com"
           helperText={errorMail ? "メールアドレスを入力してください" : ""}
-          errorInput={errorMail}
+          error={errorMail}
           onBlur={mailBlur}
         />
         <PrimaryInput
           type="text"
           label="パスワード"
-          placeHolder=""
+          placeholder="テスト"
           helperText={
             errorPass
               ? "パスワードを入力してください"
               : "半角英字大文字、小文字、数字を8文字以上16文字以内で入力してください"
           }
-          errorInput={errorPass}
-          onFocus={passFocus}
+          error={errorPass}
           onBlur={passBlur}
+          onFocus={passFocus}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         {passText ? (
           // <Box sx={{ textAlign: "left", listStyle: "none" }}>

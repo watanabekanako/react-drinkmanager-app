@@ -271,8 +271,6 @@ const Poll: FC<Props> = memo((props) => {
             <ListItemText primaryTypographyProps={{ fontSize: "25px" }} primary="・3月の人気投票結果発表" />
           </ListItem>
         </List>
-
-        <ItemCard/>
       </Paper>
     </>
   );

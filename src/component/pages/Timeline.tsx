@@ -142,7 +142,7 @@ const Timeline: FC<Props> = memo((props) => {
           size="small"
         />
       </Paper>
-
+      <Box sx={{ml:5}}>
       <ModalWindow
         title="test modal"
         content="test modal description"
@@ -152,6 +152,7 @@ const Timeline: FC<Props> = memo((props) => {
           console.log("test");
         }}
       />
+      </Box>
     </Paper>
   );
 });
