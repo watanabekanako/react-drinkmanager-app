@@ -1,40 +1,47 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 
-import { AdminRouter } from './AdminRouter';
-import { UserRouter } from './UserRouter';
+import { AdminRouter } from "./AdminRouter";
+import { UserRouter } from "./UserRouter";
 
-import { MainMock } from '../component/pages/MainMock';
-import Login from '../component/pages/Login';
-import AdminLogin from '../component/pages/AdminLogin';
-import AdminHome from '../component/pages/AdminHome';
-import Register from '../component/pages/Register';
-import Top from '../component/pages/Top';
-import DefaultLayout from '../component/layout/defaultLayout';
+import { MainMock } from "../component/pages/MainMock";
+import Login from "../component/pages/Login";
+import AdminLogin from "../component/pages/AdminLogin";
+import AdminHome from "../component/pages/AdminHome";
+import Register from "../component/pages/Register";
+import Top from "../component/pages/Top";
+import DefaultLayout from "../component/layout/defaultLayout";
+// ヘッダー不必要のため仮置
+import Faq from "../component/pages/Faq";
 
 const MainRoute = [
   {
-    path: '/main',
+    path: "/main",
     element: <MainMock />,
   },
   {
-    path: '/adminlogin',
+    path: "/adminlogin",
     element: <AdminLogin />,
   },
   {
-    path: '/login',
+    path: "/login",
     element: <Login />,
   },
   {
-    path: '/register',
+    path: "/register",
     element: <Register />,
   },
   {
-    path: '/adminhome',
+    path: "/adminhome",
     element: <AdminHome />,
   },
   {
-    path: '/home',
+    path: "/home",
     element: <Top />,
+  },
+  // ヘッダー不必要のため仮置
+  {
+    path: "/faq",
+    element: <Faq />,
   },
 ];
 
