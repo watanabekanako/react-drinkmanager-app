@@ -4,21 +4,27 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import CardActions from "@mui/material/CardActions";
+
 import { PrimaryButton } from "../button/Button";
-import { Button, makeStyles } from "@mui/material";
-import { BorderColor } from "@mui/icons-material";
+import { Box} from "@mui/material";
+
 
 const PollCard = () => {
+
+  const data=["コーヒー","コーヒー","コーヒー","コーヒー","コーヒー","コーヒー","コーヒー","コーヒー",]
+
   return (
     <>
+    <Box sx={{display:"flex",flexWrap:"wrap",justifyContent:"space-around",mt:5}}>
+      {data.map((drink)=>{
+        return(
       <Card
         sx={{
-          maxWidth: 250,
+          width: 270,
           m: 2,
           boxShadow: "none",
-          borderStyle: "solid 1.5px",
-          borderColor: "#ccc",
+          border: "solid 1px ",
+          borderColor:"#bfbec5"
         }}
       >
         <Typography
@@ -99,7 +105,7 @@ const PollCard = () => {
             mb: 1,
             width: 200,
             boxShadow: "none",
-            ml: 3,
+            ml: 4,
             border: "double",
             ":hover": {
               background: "#8d6449",
@@ -116,7 +122,7 @@ const PollCard = () => {
             mb: 2,
             boxShadow: "none",
             border: "double",
-            ml: 3,
+            ml: 4,
             ":hover": {
               background: "#e29399",
               cursor: "pointer",
@@ -126,6 +132,9 @@ const PollCard = () => {
           + 投票する
         </PrimaryButton>
       </Card>
+        )
+      })}
+    </Box>
     </>
   );
 };

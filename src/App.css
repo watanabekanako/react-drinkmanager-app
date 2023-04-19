@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+
+.ttlUnder {
+  border-bottom: 6px dotted #ff9900;
+  border-top: 6px dotted #ff9900;
+}
+.ttl {
+  border-bottom: 4px dashed #e4af9b;
+  display: inline-block;
+}
+.drinkTtl {
+  padding: 0.5em; /*文字周りの余白*/
+  color: #494949; /*文字色*/
+  background: #fffaf4; /*背景色*/
+  border-left: solid 5px #ffaf58; /*左線（実線 太さ 色）*/
+}
+.productTtl {
+  position: relative;
+  color: #ea6f00;
+  font-size: 20px;
+  padding: 10px 0;
+  text-align: center;
+}
+.productTtl:before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 150px;
+  height: 90px;
+  border-radius: 40%;
+  border: 5px solid #f6f0ea;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
