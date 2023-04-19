@@ -36,7 +36,7 @@ const Footer = () => {
           alignItems: "center",
           justifyContent: "center",
           py: 3,
-          background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+          background: "#f3bf88",
           color: "white",
         }}
       >
@@ -51,7 +51,7 @@ const Footer = () => {
           alignItems: "center",
           justifyContent: "center",
           py: 3,
-          background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+          background: "#f3bf88",
           color: "white",
         }}
       >

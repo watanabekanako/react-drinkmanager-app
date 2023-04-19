@@ -1,7 +1,7 @@
 import { FC, memo } from "react";
 // import "./App.css";
 import React from "react";
-import Paper from "@mui/material/Paper";
+
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -12,169 +12,128 @@ import Typography from "@mui/material/Typography";
 import DefaultLayout from "../layout/defaultLayout";
 import { PrimaryButton } from "../button/Button";
 import Grid from "@mui/material/Grid";
+import ItemCard from "../card/ItemCard";
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
+import AccordionMenu from "../accordion/AccordionMenu";
+import { Container } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import PollResult from "./PollResult";
+import Paper from "@mui/material";
 type Props = {};
 
 const Top: FC<Props> = memo((props) => {
+  const items = [1, 2, 3, 4, 5, 6];
   return (
     <>
       <>
-        <CardMedia
-          component="img"
-          alt="green "
-          height="345"
-          image="/top.png"
-          sx={{ background: "#f3bf88" }}
-        />
-        <Box></Box>
-        <DefaultLayout>
-          <Card
-            sx={{
-              mb: 20,
-              mx: 10,
-              borderRadius: 10,
-              p: 8,
-              backgroundColor: "#f3bf88",
-            }}
-          >
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="div"
-              textAlign="center"
-              sx={{ m: 4, fontFamily: "Noto Serif JP, serif" }}
-            >
-              みんなの投票で会社に設置してある ドリンクの種類がかわるよ！
-              テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-              テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-            </Typography>
-          </Card>
-          <Card sx={{ m: 10, p: 2 }}>
-            {/* <Typography
-              gutterBottom
-              variant="h4"
-              component="div"
-              textAlign="center"
-              sx={{ my: 1, py: 4 }}
-              className="ttlUnder"
-            >
-              投票ランキング
-            </Typography> */}
-          </Card>
-          <PrimaryButton
-            // onClick={handleClick}
-            sx={{
-              background: "linear-gradient(95deg, #ffc97a, #ff9900)",
-              borderRadius: 4,
-              textAlign: "center",
-              display: "block",
-              margin: "auto",
-            }}
-          >
-            Primary Button
-          </PrimaryButton>
+        <Header />
+        <CardMedia component="img" alt="top" height="500" image="/top.png" />
+        <Container maxWidth="xl" sx={{ my: 20 }}>
           <Grid container spacing={2}>
-            <Grid item xs={4}>
-              <Box>
-                <Card
+            <Grid item xs={3}>
+              <AccordionMenu />
+              {/* 検索ボタン */}
+
+              <Typography
+                variant="h5"
+                textAlign="center"
+                sx={{ color: "#ea6f00", mt: 10 }}
+              >
+                - キーワードで探す -
+              </Typography>
+              <Box sx={{ mb: 10 }}>
+                <TextField
+                  id="outlined-basic"
+                  variant="outlined"
+                  sx={{ my: 4, width: "100%", backgroundColor: "#fff" }}
+                />
+
+                <PrimaryButton
                   sx={{
-                    maxWidth: 345,
-                    borderRadius: "12px",
-                    background: "#FF9900",
-                    color: "#fff",
+                    background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+                    mb: 4,
+                    width: "100%",
+                    fontWeight: "bold",
                   }}
                 >
-                  <CardMedia
-                    component="img"
-                    alt="green "
-                    height="345"
-                    image="/item.jpg"
-                    sx={{ background: "#fff" }}
-                  />
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    textAlign="center"
-                    sx={{ m: 4 }}
-                  >
-                    テキストテキストテキスト
-                  </Typography>
-                </Card>
+                  検索する
+                </PrimaryButton>
+                <Box sx={{ my: 4 }}>
+                  <img src="/dummybanner.jpg" style={{ maxWidth: "100%" }} />
+                </Box>
+                <Box>
+                  <img src="/dummybanner.jpg" style={{ maxWidth: "100%" }} />
+                </Box>
               </Box>
             </Grid>
-            <Grid item xs={4}>
-              {/* <Box>
-                <Card
+
+            <Grid item xs={9}>
+              <Card
+                sx={{
+                  p: 1,
+                  mb: 5,
+                  backgroundColor: "#fff",
+                  border: "4px dotted #ffdead ",
+                  m: "10",
+                  width: "%",
+                  margin: "20 auto",
+                  textAlign: "center",
+                }}
+              >
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  sx={{ m: 4, color: "#595857", fontSize: "25px" }}
+                >
+                  みんなの投票で会社に設置してあるドリンクの種類がかわるよ！
+                </Typography>
+              </Card>
+              <Box sx={{ textAlign: "center" }}>
+                <Button
                   sx={{
-                    maxWidth: 345,
-                    borderRadius: "12px",
-                    background: "#FF9900",
-                    color: "#fff",
+                    background: "#C8A3A2",
+                    color: "#FFF",
+                    fontWeight: "bold",
+                    px: 20,
+                    py: 4,
+                    mb: 4,
+                    borderRadius: 20,
+                    fontSize: 20,
                   }}
                 >
-                  <CardMedia
-                    component="img"
-                    alt="green "
-                    height="345"
-                    image="/item.jpg"
-                    sx={{ background: "#fff" }}
-                  />
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    textAlign="center"
-                    sx={{ m: 4 }}
-                  >
-                    テキストテキストテキスト
-                  </Typography>
-                </Card>
-              </Box> */}
-            </Grid>
-            <Grid item xs={4}>
-              {/* <Box>
-                <Card
+                  投票する
+                </Button>
+              </Box>
+              {/* <Grid container spacing={2}>
+                {items.map((item, index) => (
+                  <Grid key={index} item xs={12} sm={6} md={4}>
+                    <ItemCard />
+                  </Grid>
+                ))}
+              </Grid> */}
+              <PollResult />
+              <Box sx={{ textAlign: "center" }}>
+                <Button
                   sx={{
-                    maxWidth: 345,
-                    borderRadius: "12px",
-                    background: "#FF9900",
-                    color: "#fff",
+                    background: "#C8A3A2",
+                    color: "#FFF",
+                    fontWeight: "bold",
+                    px: 20,
+                    py: 4,
+                    my: 10,
+                    borderRadius: 20,
+                    fontSize: 20,
                   }}
                 >
-                  <CardMedia
-                    component="img"
-                    alt="green "
-                    height="345"
-                    image="/item.jpg"
-                    sx={{ background: "#fff" }}
-                  />
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    textAlign="center"
-                    sx={{ m: 4 }}
-                  >
-                    テキストテキストテキスト
-                  </Typography>
-                </Card>
-              </Box> */}
+                  過去の投票結果を見る
+                </Button>
+              </Box>
             </Grid>
           </Grid>
-          <PrimaryButton
-            // onClick={handleClick}
-            sx={{
-              background: "linear-gradient(95deg, #ffc97a, #ff9900)",
-              my: 2,
-              borderRadius: 4,
-              textAlign: "center",
-              display: "block",
-              margin: "auto",
-            }}
-          >
-            Primary Button
-          </PrimaryButton>
-        </DefaultLayout>
+        </Container>
+        <Footer />
       </>
     </>
   );

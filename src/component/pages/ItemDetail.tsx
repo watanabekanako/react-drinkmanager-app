@@ -7,6 +7,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+
 type Props = {};
 
 const ItemDetail: FC<Props> = memo((props) => {
@@ -27,7 +30,7 @@ const ItemDetail: FC<Props> = memo((props) => {
         textAlign="center"
         sx={{ mb: 8 }}
       >
-        商品{id.itemId}
+        商品{id.id}
       </Typography>
       <Box
         sx={{
@@ -35,14 +38,21 @@ const ItemDetail: FC<Props> = memo((props) => {
           mb: 3,
         }}
       >
-        <Box sx={{ mr: 10, p: 1 }}>
+        <Box>
+        <Box sx={{ mr: 10, p: 1, display: "flex", ml: 5, alignItems: "center", width: 600 }}>
+          <p style={{fontSize: "50px" }}>&lt;</p>
           <CardMedia
             component="img"
             image="/item.png"
-            alt="商品名"
-            sx={{ mr: 10, ml: 5 }}
+            alt="商品画像"
           />
+          <p style={{fontSize: "50px" }}>&gt;</p>
         </Box>
+        <Box sx={{ display: "flex", justifyContent: "center"}}>
+        <p>●</p><p>○</p><p>○</p>
+        </Box>
+        </Box>
+        
         <Box sx={{ mr: 5, width: 500 }}>
           <Typography variant="body1" component="p" sx={{ p: 1 }}>
             商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。
@@ -56,12 +66,30 @@ const ItemDetail: FC<Props> = memo((props) => {
             textAlign="center"
             sx={{ p: 1, fontWeight: 600 }}
           >
-            \ 商品に関連する投稿はこちら /
+            \ 商品に関連するタイムラインはこちら /
           </Typography>
 
-          <Card sx={{ display: "flex", width: "100" }}>
+          <Card
+            sx={{
+              p: 1,
+              backgroundColor: "#ffdead",
+              border: "2px dashed #fff ",
+              boxShadow: " 0 0 0 8px #ffdead",
+              // width: "100%",
+              maxWidth: 500,
+              minWidth: 100,
+              display: "flex",
+            }}
+          >
             <Box sx={{ display: "flex" }}>
-              <CardContent sx={{ flex: "1 0 auto", width: "0.7" }}>
+              <CardContent
+                sx={{
+                  flex: "1 0 auto",
+                  width: "0.7",
+                  overflowY: "scroll",
+                  height: 200,
+                }}
+              >
                 <Typography variant="body2" component="p">
                   投稿内容が入ります。投稿内容が入ります。投稿内容が入ります。投稿内容が入ります。投稿内容が入ります。投稿内容が入ります。投稿内容が入ります。
                   投稿内容が入ります。投稿内容が入ります。投稿内容が入ります。投稿内容が入ります。投稿内容が入ります。投稿内容が入ります。投稿内容が入ります。
@@ -73,19 +101,31 @@ const ItemDetail: FC<Props> = memo((props) => {
             {postImg && (
               <CardMedia
                 component="img"
-                sx={{ height: 200, p: 1, m: "auto" }}
+                sx={{
+                  // height: 200,
+                  p: 1,
+                  m: "auto",
+                  maxWidth: 300,
+                  minWidth: 80,
+                }}
                 image="/snack.jpeg"
                 alt="スナック名"
               />
             )}
           </Card>
+          <a
+            href="/home/timeline"
+            style={{ marginTop: "10px", display: "block", textAlign: "end" }}
+          >
+            タイムラインへ移動
+          </a>
         </Box>
       </Box>
 
       <Box sx={{ display: "flex", mr: 5 }}>
         <Button
           key="item_edit_btn"
-          href={`/adminhome/itemedit/${id.itemId}`}
+          href={`/adminhome/itemedit/${id.id}`}
           variant="contained"
           sx={{
             my: 2,
