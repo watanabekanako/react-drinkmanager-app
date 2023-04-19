@@ -12,11 +12,9 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "60%",
+  width: "50%",
   bgcolor: "background.paper",
-  border: "5px solid #ffc97a",
-  borderImage: "linear-gradient(95deg, #ffc97a, #ff9900)",
-  borderImageSlice: "1",
+  borderRadius: 5,
   boxShadow: 24,
   p: 4,
 };
@@ -94,18 +92,11 @@ export default function ModalWindow(props: any) {
                     completeAction();
                     handleClose();
                   }}
-                  sx={[
-                    {
-                      "&:hover": {
-                        background: "#ffa500",
-                      },
-                    },
-                    {
-                      background: "#ffa500",
-                      my: 4,
-                      borderRadius: 4,
-                    },
-                  ]}
+                  sx={{
+                    background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+                    my: 4,
+                    borderRadius: 4,
+                  }}
                 >
                   {completeButtonName}
                 </Button>
