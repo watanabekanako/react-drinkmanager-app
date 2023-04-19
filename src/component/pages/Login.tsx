@@ -36,11 +36,15 @@ const Login: FC<Props> = memo((props) => {
           helperText={errorMail ? "メールアドレスを入力してください" : ""}
           errorInput={errorMail}
           onBlur={mailBlur}
+          InputProps={{
+            readOnly: true,
+          }}
         />
         <PrimaryInput
           type="text"
           label="パスワード"
           placeHolder=""
+          required
           helperText={
             errorPass
               ? "パスワードを入力してください"
