@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
+import IconButton from "@mui/material/IconButton";
 
 const PrimaryInput = ({
   type,
@@ -7,6 +9,7 @@ const PrimaryInput = ({
   placeHolder,
   helperText,
   errorInput,
+  InputProps,
   ...props
 }: any) => {
   return (
@@ -22,6 +25,19 @@ const PrimaryInput = ({
         fullWidth
         error={errorInput}
         {...props}
+        InputProps={InputProps}
+        endAdornment={
+          <InputAdornment position="end">
+            <IconButton
+              aria-label="toggle password visibility"
+              // onClick={handleClickShowPassword}
+              // onMouseDown={handleMouseDownPassword}
+              edge="end"
+            >
+              {placeHolder === "パスワード" ? "👁" : "a"}
+            </IconButton>
+          </InputAdornment>
+        }
       />
     </>
   );
@@ -45,6 +61,7 @@ const SecondaryInput = ({
       margin="normal"
       helperText={helperText}
       error={errorInput}
+      sx={{ minWidth: 0, flexGrow: 1 }}
       {...props}
     />
   );
