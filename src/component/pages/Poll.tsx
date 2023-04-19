@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Card,
+  CardMedia,
   List,
   ListItem,
   ListItemText,
@@ -16,6 +17,9 @@ import PollCard from "../card/PollCard";
 import { Pagination } from "@material-ui/lab";
 import { BorderColor } from "@mui/icons-material";
 import { PrimaryButton } from "../button/Button";
+import PollDone from "../card/PollDone";
+import PollDone2 from "../card/PollDone2";
+import ItemCard from "../card/ItemCard";
 // yarn add @material-ui/lab
 
 type Props = {};
@@ -35,14 +39,14 @@ const Poll: FC<Props> = memo((props) => {
 
   return (
     <>
-      <Paper sx={{mb:5,minWidth:1300,ml:5}}>
+      <Paper sx={{mb:5,width:"100%",minWidth:500,maxWidth:1200}}>
         <PrimaryButton
           sx={{
             backgroundColor: "#84b9cb",
             my: 4,
             p: 3,
-            ml: 100,
-            width: 300,
+            ml:80,
+            width: 250,
             fontSize: "20px",
             fontWeight:"bold",
             ":hover": {
@@ -51,7 +55,7 @@ const Poll: FC<Props> = memo((props) => {
             },
           }}
         >
-          過去の投票結果を見る👀
+          過去の投票結果
         </PrimaryButton>
         <Box
           sx={{
@@ -90,10 +94,12 @@ const Poll: FC<Props> = memo((props) => {
           sx={{
             p: 1,
             mb: 5,
-            backgroundColor: "#f3bf88",
+            backgroundColor: "#ffdead",
             border: "2px dashed #fff ",
-            boxShadow: " 0 0 0 8px #f3bf88",
-            width: 800,
+            boxShadow: " 0 0 0 8px #ffdead",
+            width: "100%",
+            maxWidth:700,
+            minWidth:500,
             m: "auto",
           }}
         >
@@ -117,7 +123,7 @@ const Poll: FC<Props> = memo((props) => {
           </Typography>
         </Card>
         <PollCard />
-        <Box sx={{ ml: 60, my: 5 }}>
+        <Box sx={{ ml: 50, my: 5 }}>
           <Pagination count={10} page={page} onChange={handleChange} />
         </Box>
         <Box
@@ -158,9 +164,9 @@ const Poll: FC<Props> = memo((props) => {
           sx={{
             p: 1,
             mb: 5,
-            backgroundColor: "#f3bf88",
+            backgroundColor: "#ffdead",
             border: "2px dashed #fff ",
-            boxShadow: " 0 0 0 8px #f3bf88",
+            boxShadow: " 0 0 0 8px #ffdead",
             width: 800,
             m: "auto",
           }}
@@ -174,18 +180,24 @@ const Poll: FC<Props> = memo((props) => {
           >
             みんなの投票で会社に設置してある ドリンクの種類がかわるよ！
           </Typography>
+
           <Typography
             gutterBottom
             variant="h5"
             component="div"
             textAlign="center"
-            sx={{ m: 4, color: "#595857", fontSize: "20px" }}
+            sx={{ m: 4, color: "#595857", fontSize: "20px", }}
           >
             ※各投票、お一人につき一回まで投票が可能です
           </Typography>
         </Card>
-        <PollCard />
-        <Box sx={{ ml: 60, my: 5, pb: 5 }}>
+        <Box sx={{mt:10,pb:10,backgroundImage: "url(/s5.png)"  ,  backgroundRepeat: "no-repeat",
+        backgroundSize:"900px",
+    backgroundPosition: "center",}}>
+        <PollDone/>
+        </Box>
+        <PollDone2 />
+        <Box sx={{ ml: 50, my: 5, pb: 5 }}>
           <Pagination count={10} page={page} onChange={handleChange} />
         </Box>
         <Box
@@ -211,7 +223,7 @@ const Poll: FC<Props> = memo((props) => {
             過去の投票結果
           </Box>
         </Box>
-        <Box sx={{ ml: 85 }}>
+        <Box sx={{ ml: 70 }}>
           <Box>
           <Select
             id="condition"
@@ -259,6 +271,8 @@ const Poll: FC<Props> = memo((props) => {
             <ListItemText primaryTypographyProps={{ fontSize: "25px" }} primary="・3月の人気投票結果発表" />
           </ListItem>
         </List>
+
+        <ItemCard/>
       </Paper>
     </>
   );
