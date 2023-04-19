@@ -23,17 +23,25 @@ const Top: FC<Props> = memo((props) => {
           alt="green "
           height="345"
           image="/top.png"
-          sx={{ background: "#fff" }}
+          sx={{ background: "#f3bf88" }}
         />
         <Box></Box>
         <DefaultLayout>
-          <Card sx={{ mb: 20, mx: 10, borderRadius: 10, p: 8 }}>
+          <Card
+            sx={{
+              mb: 20,
+              mx: 10,
+              borderRadius: 10,
+              p: 8,
+              backgroundColor: "#f3bf88",
+            }}
+          >
             <Typography
               gutterBottom
               variant="h5"
               component="div"
               textAlign="center"
-              sx={{ m: 4 }}
+              sx={{ m: 4, fontFamily: "Noto Serif JP, serif" }}
             >
               みんなの投票で会社に設置してある ドリンクの種類がかわるよ！
               テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
@@ -95,7 +103,7 @@ const Top: FC<Props> = memo((props) => {
               </Box>
             </Grid>
             <Grid item xs={4}>
-              <Box>
+              {/* <Box>
                 <Card
                   sx={{
                     maxWidth: 345,
@@ -121,10 +129,10 @@ const Top: FC<Props> = memo((props) => {
                     テキストテキストテキスト
                   </Typography>
                 </Card>
-              </Box>
+              </Box> */}
             </Grid>
             <Grid item xs={4}>
-              <Box>
+              {/* <Box>
                 <Card
                   sx={{
                     maxWidth: 345,
@@ -150,7 +158,7 @@ const Top: FC<Props> = memo((props) => {
                     テキストテキストテキスト
                   </Typography>
                 </Card>
-              </Box>
+              </Box> */}
             </Grid>
           </Grid>
           <PrimaryButton
