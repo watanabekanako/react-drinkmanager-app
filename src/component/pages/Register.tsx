@@ -5,6 +5,10 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
+import IconButton from "@material-ui/core/IconButton";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { PrimaryButton } from "../button/Button";
 import { SecondaryInput, PrimaryInput } from "../input/Input";
 
@@ -19,6 +23,7 @@ const Register: FC<Props> = memo((props) => {
   const [errorMail, setErrorMail] = useState(false);
   const [errorPass, setErrorPass] = useState(false);
   const [errorConfirmPass, setErrorConfirmPass] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const passFocus = () => {
     setPassText(true);
   };
@@ -57,9 +62,9 @@ const Register: FC<Props> = memo((props) => {
         <SecondaryInput
           type="text"
           label="社員ID*"
-          placeHolder="例）0000"
+          placeholder="例）0000"
           helperText={errorId ? "社員IDを入力してください" : ""}
-          errorInput={errorId}
+          error={errorId}
           onBlur={idBlur}
         />
         <Stack direction="row" sx={{ alignItems: "flex-end" }} spacing={2}>
@@ -67,9 +72,9 @@ const Register: FC<Props> = memo((props) => {
             <SecondaryInput
               type="text"
               label="姓*"
-              placeHolder="例）ラクス*"
+              placeholder="例）ラクス*"
               helperText={errorFirstName ? "姓を入力してください" : ""}
-              errorInput={errorFirstName}
+              error={errorFirstName}
               onBlur={firstNameBlur}
               style={{ height: "100%" }}
             />
@@ -78,9 +83,9 @@ const Register: FC<Props> = memo((props) => {
             <SecondaryInput
               type="text"
               label="名*"
-              placeHolder="例）太郎"
+              placeholder="例）太郎"
               helperText={errorLastName ? "名を入力してください" : ""}
-              errorInput={errorLastName}
+              error={errorLastName}
               onBlur={lastNameBlur}
               style={{ height: "100%" }}
             />
@@ -89,15 +94,15 @@ const Register: FC<Props> = memo((props) => {
         <PrimaryInput
           type="text"
           label="メールアドレス*"
-          placeHolder="例）example@example.com"
+          placeholder="例）example@example.com"
           helperText={errorMail ? "メールアドレスを入力してください" : ""}
-          errorInput={errorMail}
+          error={errorMail}
           onBlur={mailBlur}
         />
         <PrimaryInput
           type="password"
-          label="パスワード"
-          placeHolder="パスワード"
+          label="パスワード*"
+          placeholder="パスワード"
           onFocus={passFocus}
           onBlur={passBlur}
           helperText={
@@ -105,7 +110,19 @@ const Register: FC<Props> = memo((props) => {
               ? "パスワードを入力してください"
               : "半角英字大文字、小文字、数字を8文字以上16文字以内で入力してください"
           }
-          errorInput={errorPass}
+          error={errorPass}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         {passText ? (
           // <Box sx={{ textAlign: "left", listStyle: "none" }}>
@@ -128,12 +145,24 @@ const Register: FC<Props> = memo((props) => {
         <PrimaryInput
           type="password"
           label="確認用パスワード*"
-          placeHolder="確認用パスワード"
+          placeholder="確認用パスワード"
           helperText={
             errorConfirmPass ? "確認用パスワードを入力してください" : ""
           }
-          errorInput={errorConfirmPass}
+          error={errorConfirmPass}
           onBlur={confirmPassBlur}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <Box sx={{ textAlign: "center" }}>
           <PrimaryButton children="登録" />
