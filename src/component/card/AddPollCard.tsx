@@ -9,9 +9,8 @@ import { PrimaryButton } from "../button/Button";
 import { Box} from "@mui/material";
 
 
-const PollDone = () => {
-
-  const data=["コーヒー",]
+const AddPollCard = () => {
+  const data=["コーヒー","コーヒー","コーヒー","コーヒー","コーヒー","コーヒー","コーヒー","コーヒー","コーヒー",]
 
   return (
     <>
@@ -34,7 +33,7 @@ const PollDone = () => {
           sx={{
             textAlign: "center",
             fontSize: "13px",
-            backgroundColor: "#d2691e",
+            backgroundColor: "#946c45",
             width: 80,
             p: "3px",
             fontFamily: "HiraMinProN-W3",
@@ -42,7 +41,7 @@ const PollDone = () => {
             border: "double",
           }}
         >
-          ☕️tea
+          ☕️coffee
         </Typography>
         <CardActionArea>
           <CardMedia
@@ -61,7 +60,23 @@ const PollDone = () => {
             }}
           />
           <CardContent>
-
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              component="p"
+              sx={{
+                textAlign: "center",
+                fontSize: "13px",
+                backgroundColor: "#a4c1d7",
+                width: 80,
+                p: "3px",
+                fontFamily: "HiraMinProN-W3",
+                fontWeight: "bold",
+                color: "#000",
+              }}
+            >
+              ☕️社内あり
+            </Typography>
             <Typography
               gutterBottom
               sx={{
@@ -97,24 +112,7 @@ const PollDone = () => {
             },
           }}
         >
-          🔎詳細を見る
-        </PrimaryButton>
-        <PrimaryButton
-disabled
-          sx={{
-            background: "#e17b34",
-            width: 200,
-            mb: 2,
-            boxShadow: "none",
-            ml: 4,
-            color:"#000",
-            ":hover": {
-              background: "#e17b34",
-              cursor: "pointer",
-            },
-          }}
-        >
-          ✔️この商品に<br/>投票しました!!
+          追加する
         </PrimaryButton>
       </Card>
         )
@@ -124,4 +122,4 @@ disabled
   );
 };
 
-export default PollDone;
+export default AddPollCard;
