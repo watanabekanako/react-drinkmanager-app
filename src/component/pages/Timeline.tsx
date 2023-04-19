@@ -55,6 +55,7 @@ const Timeline: FC<Props> = memo((props) => {
           </IconButton>
         </Grid>
       </Grid>
+      <Box sx={{ml:5}}>
       <ModalWindow
         title="test modal"
         content="test modal description"
@@ -64,6 +65,7 @@ const Timeline: FC<Props> = memo((props) => {
           console.log("test");
         }}
       />
+      </Box>
     </Paper>
   );
 });
