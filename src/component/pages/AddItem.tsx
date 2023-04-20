@@ -120,6 +120,7 @@ const AddItem: FC<Props> = memo((props) => {
                           fontWeight: "bold",
                           fontSize: "16px",
                           color: "#000",
+                          fontFamily: "'M PLUS 1p', sans-serif",
                         }}
                         onClick={testFunc}
                       >
@@ -136,6 +137,7 @@ const AddItem: FC<Props> = memo((props) => {
                         fontWeight: "bold",
                         fontSize: "16px",
                         color: "#ff0000",
+                        fontFamily: "'M PLUS 1p', sans-serif",
                       }}
                     >
                       削除
