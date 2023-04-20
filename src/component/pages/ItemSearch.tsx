@@ -20,7 +20,7 @@ const Itmesearch = () => {
       <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
         <Button
           sx={{
-            background: "#C8A3A2",
+            background: "#e29399",
             color: "#FFF",
             fontWeight: "bold",
             width: 100,
@@ -31,7 +31,7 @@ const Itmesearch = () => {
 
         <Button
           sx={{
-            background: "#8FB8D6",
+            background: "#a4c1d7",
             color: "#FFF",
             fontWeight: "bold",
             marginLeft: 2,
@@ -44,11 +44,11 @@ const Itmesearch = () => {
       <Typography
         variant="h4"
         component="p"
-        sx={{ mb: 1, fontFamily: "HiraMinProN-W3" }}
+        sx={{ mb: 1, fontFamily: "Roboto" }}
       >
         ●●の検索結果一覧
       </Typography>
-      <Typography component="p" sx={{ mb: 1, fontFamily: "HiraMinProN-W3" }}>
+      <Typography component="p" sx={{ mb: 1, fontFamily: "Roboto" }}>
         検索に一致する商品はありませんでした。
       </Typography>
       <Grid container spacing={2}>
@@ -63,7 +63,7 @@ const Itmesearch = () => {
       <Box sx={{ textAlign: "right", my: 4 }}>
         <Button
           sx={{
-            background: "#8FB8D6",
+            background: "#024098",
             color: "#FFF",
             fontWeight: "bold",
             marginLeft: 2,

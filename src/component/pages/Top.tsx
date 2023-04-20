@@ -20,6 +20,7 @@ import { Container } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import PollResult from "./PollResult";
 import Paper from "@mui/material";
+import { Link } from "@mui/material";
 type Props = {};
 
 const Top: FC<Props> = memo((props) => {
@@ -69,36 +70,56 @@ const Top: FC<Props> = memo((props) => {
             </Grid>
 
             <Grid item xs={9}>
-              <Card
-                sx={{
-                  p: 1,
-                  mb: 5,
-                  backgroundColor: "#fff",
-                  border: "4px dotted #ffdead ",
-                  m: "10",
-                  width: "%",
-                  margin: "20 auto",
-                  textAlign: "center",
-                }}
-              >
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  sx={{ m: 4, color: "#595857", fontSize: "25px" }}
+              <Box sx={{ textAlign: "center" }}>
+                <Card
+                  sx={{
+                    p: 1,
+                    backgroundColor: "#fff",
+                    border: "4px dotted #ffdead ",
+                    textAlign: "center",
+                    width: "60%",
+                    borderRadius: "20px",
+                    m: "auto",
+                  }}
                 >
-                  みんなの投票で会社に設置してあるドリンクの種類がかわるよ！
-                </Typography>
-              </Card>
+                  <Typography
+                    gutterBottom
+                    component="div"
+                    sx={{ m: 4, color: "#595857", fontSize: "25px" }}
+                  >
+                    みんなの投票で会社に設置してある<br></br>
+                    <Typography
+                      gutterBottom
+                      component="span"
+                      sx={{
+                        color: "#f3bf88",
+                        fontSize: "25px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      ドリンクの種類
+                    </Typography>
+                    がかわるよ！
+                  </Typography>
+                  <Typography
+                    gutterBottom
+                    component="div"
+                    sx={{ m: 4, color: "#595857", fontSize: "16px" }}
+                  >
+                    好きなドリンクを教えてね。<br></br>
+                    あなたの一票で結果が変わるかも!?
+                  </Typography>
+                </Card>
+              </Box>
               <Box sx={{ textAlign: "center" }}>
                 <Button
                   sx={{
-                    background: "#C8A3A2",
+                    background: "#e29399",
                     color: "#FFF",
                     fontWeight: "bold",
                     px: 20,
                     py: 4,
-                    mb: 4,
+                    my: 10,
                     borderRadius: 20,
                     fontSize: 20,
                   }}
@@ -117,7 +138,7 @@ const Top: FC<Props> = memo((props) => {
               <Box sx={{ textAlign: "center" }}>
                 <Button
                   sx={{
-                    background: "#C8A3A2",
+                    background: "#e29399",
                     color: "#FFF",
                     fontWeight: "bold",
                     px: 20,
@@ -133,6 +154,24 @@ const Top: FC<Props> = memo((props) => {
             </Grid>
           </Grid>
         </Container>
+        <Box
+          sx={{
+            borderRadius: 20,
+            position: "fixed",
+            bottom: 20,
+            right: 10,
+            zIndex: 1,
+            width: 100,
+            height: 100,
+          }}
+        >
+          <Link href="/faq">
+            <img
+              src="/chatbot.png"
+              style={{ maxWidth: "100%", borderRadius: "20px" }}
+            />
+          </Link>
+        </Box>
         <Footer />
       </>
     </>
