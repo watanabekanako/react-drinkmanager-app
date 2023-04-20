@@ -12,12 +12,12 @@ type Props = {};
 
 const ItemDetail: FC<Props> = memo((props) => {
   const id = useParams();
-  const [postImg, setPostImg] = useState("/********");
+  const [postImg, setPostImg] = useState('/********');
   const navigate = useNavigate();
   const onClickItemDelete = () => {
-    const deleteOrNot = window.confirm("本当に商品を削除しますか？");
+    const deleteOrNot = window.confirm('本当に商品を削除しますか？');
     if (deleteOrNot) {
-      navigate("/home");
+      navigate('/home');
     }
   };
 
@@ -83,21 +83,21 @@ const ItemDetail: FC<Props> = memo((props) => {
           <Card
             sx={{
               p: 1,
-              backgroundColor: "#ffdead",
-              border: "2px dashed #fff ",
-              boxShadow: " 0 0 0 8px #ffdead",
+              backgroundColor: '#ffdead',
+              border: '2px dashed #fff ',
+              boxShadow: ' 0 0 0 8px #ffdead',
               // width: "100%",
               maxWidth: 500,
               minWidth: 100,
-              display: "flex",
+              display: 'flex',
             }}
           >
-            <Box sx={{ display: "flex" }}>
+            <Box sx={{ display: 'flex' }}>
               <CardContent
                 sx={{
-                  flex: "1 0 auto",
-                  width: "0.7",
-                  overflowY: "scroll",
+                  flex: '1 0 auto',
+                  width: '0.7',
+                  overflowY: 'scroll',
                   height: 200,
                 }}
               >
@@ -115,7 +115,7 @@ const ItemDetail: FC<Props> = memo((props) => {
                 sx={{
                   // height: 200,
                   p: 1,
-                  m: "auto",
+                  m: 'auto',
                   maxWidth: 300,
                   minWidth: 80,
                 }}
@@ -126,7 +126,7 @@ const ItemDetail: FC<Props> = memo((props) => {
           </Card>
           <a
             href="/home/timeline"
-            style={{ marginTop: "10px", display: "block", textAlign: "end" }}
+            style={{ marginTop: '10px', display: 'block', textAlign: 'end' }}
           >
             タイムラインへ移動
           </a>
