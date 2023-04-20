@@ -21,6 +21,7 @@ import TextField from "@mui/material/TextField";
 import PollResult from "./PollResult";
 import Paper from "@mui/material";
 import { Link } from "@mui/material";
+import Timeline from "./Timeline";
 type Props = {};
 
 const Top: FC<Props> = memo((props) => {
@@ -52,7 +53,7 @@ const Top: FC<Props> = memo((props) => {
 
                 <PrimaryButton
                   sx={{
-                    background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+                    background: "#ea6f00",
                     mb: 4,
                     width: "100%",
                     fontWeight: "bold",
@@ -172,6 +173,8 @@ const Top: FC<Props> = memo((props) => {
             />
           </Link>
         </Box>
+
+        <></>
         <Footer />
       </>
     </>

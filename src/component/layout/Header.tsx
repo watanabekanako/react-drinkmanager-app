@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import { Link } from "@mui/material";
 import {
   Accordion,
   AccordionSummary,
@@ -25,6 +26,7 @@ import { styled } from "@mui/material/styles";
 import { PrimaryButton } from "../button/Button";
 import AccordionMenu from "../accordion/AccordionMenu";
 import { useState } from "react";
+import { ActiveDarkBlueButton } from "../button/Button";
 const Header = () => {
   const pages = [
     { label: "Top", href: "/home" },
@@ -89,6 +91,15 @@ const Header = () => {
           ログアウト
         </PrimaryButton>
         <div style={{ marginLeft: "auto" }}>
+          {/* <ActiveDarkBlueButton
+            sx={{ borderRadius: 4 }}
+            event={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+          >
+            管理者用TOP
+          </ActiveDarkBlueButton> */}
+          {/* <Link to="/adminhome"> */}
           <PrimaryButton
             sx={{
               background: "#024098",
@@ -97,14 +108,7 @@ const Header = () => {
           >
             管理者用TOP
           </PrimaryButton>
-          {/* <PrimaryButton
-            sx={{
-              background: "#1C2953",
-              borderRadius: 4,
-            }}
-          >
-            管理者用TOP
-          </PrimaryButton> */}
+          {/* </Link> */}
         </div>
       </Paper>
 
