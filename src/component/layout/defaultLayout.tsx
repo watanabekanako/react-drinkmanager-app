@@ -13,6 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useState } from "react";
+import { ActiveOrangeButton } from "../button/Button";
 import {
   Accordion,
   AccordionSummary,
@@ -27,6 +28,7 @@ import { PrimaryButton } from "../button/Button";
 import AccordionMenu from "../accordion/AccordionMenu";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useLocation } from "react-router-dom";
 function DefaultLayout({ children }: { children: any }) {
   return (
     <React.Fragment>
@@ -54,7 +56,7 @@ function DefaultLayout({ children }: { children: any }) {
 
               <PrimaryButton
                 sx={{
-                  background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+                  background: "#ea6f00",
                   mb: 4,
                   width: "100%",
                   fontWeight: "bold",
@@ -62,6 +64,7 @@ function DefaultLayout({ children }: { children: any }) {
               >
                 検索する
               </PrimaryButton>
+
               <Box sx={{ my: 4 }}>
                 <img src="/dummybanner.jpg" style={{ maxWidth: "100%" }} />
               </Box>
@@ -78,6 +81,7 @@ function DefaultLayout({ children }: { children: any }) {
         </Grid>
       </Container>
       {/* チャットボット */}
+
       <Box
         sx={{
           borderRadius: 20,
