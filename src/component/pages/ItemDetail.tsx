@@ -7,8 +7,13 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import {ActiveRedButton,
+  InactiveButton,
+  ActiveBlueButton,
+  ActiveOrangeButton,
+  ActiveBeigeButton,
+  ActivePinkButton,
+  ActiveDarkBlueButton,} from "../button/Button"
 
 type Props = {};
 
@@ -22,6 +27,10 @@ const ItemDetail: FC<Props> = memo((props) => {
       navigate("/home");
     }
   };
+
+  const testEvent = () => {
+    console.log("テスト")
+  }
   return (
     <>
       <Typography
@@ -154,7 +163,16 @@ const ItemDetail: FC<Props> = memo((props) => {
         >
           商品を削除
         </Button>
+  
       </Box>
+      <div style={{marginBottom: "100px"}}></div>
+      <InactiveButton>非活性ボタン</InactiveButton>
+  <ActiveBlueButton event={testEvent}>青ボタン</ActiveBlueButton>
+  <ActiveOrangeButton event={testEvent}>オレンジボタン</ActiveOrangeButton>
+  <ActiveBeigeButton event={testEvent}>ベージュボタン</ActiveBeigeButton>
+  <ActivePinkButton event={testEvent}>ピンクボタン</ActivePinkButton>
+  <ActiveDarkBlueButton event={testEvent}>ネイビーボタン</ActiveDarkBlueButton>
+  <ActiveRedButton event={testEvent}>赤ボタン</ActiveRedButton>
     </>
   );
 });
