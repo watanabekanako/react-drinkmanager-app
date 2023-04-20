@@ -27,7 +27,10 @@ const InactiveButton = ({
     <Button
       variant="contained"
       disabled
-      sx={{ ...sxStyle }}
+      sx={{
+        fontWeight: "bold",
+        fontFamily: "'M PLUS 1p', sans-serif",
+        ...sxStyle }}
       {...props}
     >
       {children}
@@ -51,7 +54,9 @@ const ActiveBlueButton = ({
         background: "#8FB8D6",
         opacity: 0.7,
         cursor: "pointer",
-      }, ...sxStyle }}
+      },
+      fontFamily: "'M PLUS 1p', sans-serif",
+      ...sxStyle }}
       {...props}
     >
       {children}
@@ -75,7 +80,9 @@ const ActiveOrangeButton = ({
         background: "#ea6f00",
         opacity: 0.7,
         cursor: "pointer",
-      }, ...sxStyle }}
+      },
+      fontFamily: "'M PLUS 1p', sans-serif",
+      ...sxStyle }}
       {...props}
     >
       {children}
@@ -99,7 +106,9 @@ const ActiveBeigeButton = ({
         background: "#C89F81",
         opacity: 0.7,
         cursor: "pointer",
-      }, ...sxStyle }}
+      }, 
+      fontFamily: "'M PLUS 1p', sans-serif",
+      ...sxStyle }}
       {...props}
     >
       {children}
@@ -123,7 +132,9 @@ const ActivePinkButton = ({
         background: "#e29399",
         opacity: 0.7,
         cursor: "pointer",
-      }, ...sxStyle }}
+      }, 
+      fontFamily: "'M PLUS 1p', sans-serif",
+      ...sxStyle }}
       {...props}
     >
       {children}
@@ -147,7 +158,9 @@ const ActiveDarkBlueButton = ({
         background: "#024098",
         opacity: 0.7,
         cursor: "pointer",
-      }, ...sxStyle }}
+      }, 
+      fontFamily: "'M PLUS 1p', sans-serif",
+      ...sxStyle }}
       {...props}
     >
       {children}
@@ -171,7 +184,9 @@ const ActiveRedButton = ({
         background: "#ff0000",
         opacity: 0.7,
         cursor: "pointer",
-      }, ...sxStyle }}
+      }, 
+      fontFamily: "'M PLUS 1p', sans-serif",
+      ...sxStyle }}
       {...props}
     >
       {children}
