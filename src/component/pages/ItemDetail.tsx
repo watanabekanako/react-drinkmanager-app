@@ -5,15 +5,8 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-import {ActiveRedButton,
-  InactiveButton,
-  ActiveBlueButton,
-  ActiveOrangeButton,
-  ActiveBeigeButton,
-  ActivePinkButton,
-  ActiveDarkBlueButton,} from "../button/Button"
+import { ActiveRedButton, ActiveDarkBlueButton } from "../button/Button";
 
 type Props = {};
 
@@ -28,9 +21,10 @@ const ItemDetail: FC<Props> = memo((props) => {
     }
   };
 
-  const testEvent = () => {
-    console.log("テスト")
-  }
+  const onClickItemEdit = () => {
+    navigate(`/adminhome/itemedit/${id.id}`);
+  };
+
   return (
     <>
       <Typography
@@ -44,24 +38,32 @@ const ItemDetail: FC<Props> = memo((props) => {
       <Box
         sx={{
           display: { xs: "flex" },
-          mb: 3,
+          mb: 10,
+          alignItems: "center",
         }}
       >
         <Box>
-        <Box sx={{ mr: 10, p: 1, display: "flex", ml: 5, alignItems: "center", width: 600 }}>
-          <p style={{fontSize: "50px" }}>&lt;</p>
-          <CardMedia
-            component="img"
-            image="/item.png"
-            alt="商品画像"
-          />
-          <p style={{fontSize: "50px" }}>&gt;</p>
+          <Box
+            sx={{
+              mr: 15,
+              p: 1,
+              display: "flex",
+              ml: 10,
+              alignItems: "center",
+              width: 400,
+            }}
+          >
+            <p style={{ fontSize: "50px" }}>&lt;</p>
+            <CardMedia component="img" image="/item.png" alt="商品画像" />
+            <p style={{ fontSize: "50px" }}>&gt;</p>
+          </Box>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <p>●</p>
+            <p>○</p>
+            <p>○</p>
+          </Box>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "center"}}>
-        <p>●</p><p>○</p><p>○</p>
-        </Box>
-        </Box>
-        
+
         <Box sx={{ mr: 5, width: 500 }}>
           <Typography variant="body1" component="p" sx={{ p: 1 }}>
             商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。
@@ -132,47 +134,27 @@ const ItemDetail: FC<Props> = memo((props) => {
       </Box>
 
       <Box sx={{ display: "flex", mr: 5 }}>
-        <Button
-          key="item_edit_btn"
-          href={`/adminhome/itemedit/${id.id}`}
-          variant="contained"
-          sx={{
+        <ActiveDarkBlueButton
+          event={onClickItemEdit}
+          sxStyle={{
             my: 2,
-            color: "white",
-            display: "block",
-            backgroundColor: "#EA6F00",
-            fontWeight: 500,
             ml: "auto",
           }}
         >
           商品を編集
-        </Button>
+        </ActiveDarkBlueButton>
 
-        <Button
-          key="item_delete_btn"
-          onClick={onClickItemDelete}
+        <ActiveRedButton
+          event={onClickItemDelete}
           variant="contained"
-          sx={{
+          sxStyle={{
             my: 2,
-            color: "white",
-            display: "block",
-            backgroundColor: "#b30000",
-            fontWeight: 500,
             ml: 3,
           }}
         >
           商品を削除
-        </Button>
-  
+        </ActiveRedButton>
       </Box>
-      <div style={{marginBottom: "100px"}}></div>
-      <InactiveButton>非活性ボタン</InactiveButton>
-  <ActiveBlueButton event={testEvent}>青ボタン</ActiveBlueButton>
-  <ActiveOrangeButton event={testEvent}>オレンジボタン</ActiveOrangeButton>
-  <ActiveBeigeButton event={testEvent}>ベージュボタン</ActiveBeigeButton>
-  <ActivePinkButton event={testEvent}>ピンクボタン</ActivePinkButton>
-  <ActiveDarkBlueButton event={testEvent}>ネイビーボタン</ActiveDarkBlueButton>
-  <ActiveRedButton event={testEvent}>赤ボタン</ActiveRedButton>
     </>
   );
 });

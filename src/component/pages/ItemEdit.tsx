@@ -12,6 +12,13 @@ import Paper from "@mui/material/Paper";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import {
+  InactiveButton,
+  ActiveBlueButton,
+  ActiveOrangeButton,
+  ActiveDarkBlueButton,
+  ActiveRedButton,
+} from "../button/Button";
 
 type Props = {};
 
@@ -44,17 +51,25 @@ const ItemEdit: FC<Props> = memo((props) => {
     setItemImages(updatedItemImages);
   };
 
+  const testFunc = () => {
+    console.log("テスト");
+  };
+
+  const onClickChangeItemData = () => {
+    navigate("/adominhome")
+  }
+
   return (
     <>
-      <Paper sx={{ p: 5, width: "80%", m: "auto"}}>
-      <Typography
-        variant="h5"
-        component="div"
-        textAlign="center"
-        sx={{ mb: 8 }}
-      >
-        商品編集
-      </Typography>
+      <Paper sx={{ p: 5, width: "80%", m: "auto" }}>
+        <Typography
+          variant="h5"
+          component="div"
+          textAlign="center"
+          sx={{ mb: 8 }}
+        >
+          商品編集
+        </Typography>
         <TextField
           id="itemName"
           label="商品名"
@@ -72,7 +87,7 @@ const ItemEdit: FC<Props> = memo((props) => {
         </Typography>
 
         {/* ファイル選択 */}
-        <Box sx={{ display: "flex", mb: 5 }}>
+        <Box sx={{ display: "flex", mb: 5, alignItems: "center" }}>
           {itemImages.map((item, index) => {
             return (
               <>
@@ -83,33 +98,38 @@ const ItemEdit: FC<Props> = memo((props) => {
                     alt="商品画像"
                     sx={{ m: "auto", width: 200 }}
                   />
-                  <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      marginTop: "10px",
+                    }}
+                  >
                     <label htmlFor={item.id.toString()}>
-                      <Button
-                        key="item_edit_btn"
-                        variant="contained"
-                        sx={{
-                          my: 2,
-                          color: "white",
-                          display: "block",
-                          backgroundColor: "#EA6F00",
-                          fontWeight: 500,
-                          mr: 1,
+                    <Button
+                        style={{
+                          background: "none",
+                          border: "none",
+                          margin: "15px 1px",
+                          fontWeight: "bold",
+                          fontSize: "16px",
+                          color: "#000",
                         }}
+                        onClick={testFunc}
                       >
                         変更
                       </Button>
                     </label>
                     <Button
-                      key={item.id.toString()}
-                      variant="contained"
+                    key={item.id.toString()}
                       onClick={() => onClickDeleteItemImage(item.id)}
-                      sx={{
-                        my: 2,
-                        color: "white",
-                        display: "block",
-                        backgroundColor: "gray",
-                        fontWeight: 500,
+                      style={{
+                        background: "none",
+                        border: "none",
+                        margin: "15px 1px",
+                        fontWeight: "bold",
+                        fontSize: "16px",
+                        color: "#ff0000",
                       }}
                     >
                       削除
@@ -120,9 +140,9 @@ const ItemEdit: FC<Props> = memo((props) => {
             );
           })}
           {itemImages.length <= 3 && (
-            <Box>
-              <button style={{ background: "none", border: "none" }}>
-                <AddCircleOutlineIcon sx={{ fontSize: 30, mt: 11 }} />
+            <Box sx={{ width: 300,textAlign:"center"}}>
+              <button style={{ background: "none", border: "none", margin: "100px 0" }}>
+                <AddCircleOutlineIcon sx={{ fontSize: 30 }} />
               </button>
             </Box>
           )}
@@ -132,7 +152,7 @@ const ItemEdit: FC<Props> = memo((props) => {
           multiline
           aria-label="itemDescription"
           label="商品説明"
-          sx={{ width: 800, mb: 5 }}
+          sx={{ width: "100%", mb: 5 }}
           inputProps={{ maxLength: 200 }}
           defaultValue={itemDescription}
           required
@@ -178,48 +198,40 @@ const ItemEdit: FC<Props> = memo((props) => {
         )}
 
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Button
-            key="canselBtn"
-            onClick={onClickCanselModal}
-            variant="contained"
-            sx={{
+          <ActiveBlueButton
+            event={onClickCanselModal}
+            sxStyle={{
               my: 2,
-              color: "white",
-              display: "block",
-              backgroundColor: "gray",
               mr: 3,
+              py: "5px",
+              fontSize: "16px",
             }}
           >
             キャンセル
-          </Button>
+          </ActiveBlueButton>
           {itemName && itemDescription && itemImages.length > 0 ? (
-            <Button
-              key="confirmBtn"
-              href="/adminhome"
-              variant="contained"
-              sx={{
+            <ActiveOrangeButton
+              event={onClickChangeItemData}
+              sxStyle={{
                 my: 2,
-                color: "black",
-                display: "block",
-                backgroundColor: "#EA6F00",
+                mr: 3,
+                py: "5px",
+                fontSize: "16px",
               }}
             >
               確定
-            </Button>
+            </ActiveOrangeButton>
           ) : (
-            <Button
-              key="unavailableConfirmBtn"
-              variant="contained"
-              disabled
-              sx={{
-                my: 2,
-                color: "black",
-                display: "block",
-                backgroundColor: "#EA6F00",
-              }}
+            <InactiveButton
+            sxStyle={{
+              my: 2,
+              mr: 3,
+              py: "5px",
+              fontSize: "16px",
+            }}
             >
               確定
-            </Button>
+            </InactiveButton>
           )}
         </Box>
       </Paper>
