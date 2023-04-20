@@ -82,6 +82,10 @@ const StockCard = () => {
                   </Typography>
                 </CardContent>
               </CardActionArea>
+              <Typography sx={{ marginLeft: "36px" }}>
+                現在の在庫数は<span style={{ fontWeight: 'bold' }}>？？</span>
+                個です
+              </Typography>
               <TextField
                 sx={{ width: '250px', margin: '10px' }}
                 disabled={false}
@@ -102,24 +106,6 @@ const StockCard = () => {
                   },
                 }}
               />
-
-              <PrimaryButton
-                sx={{
-                  background: '#e29399',
-                  width: 200,
-                  mb: 2,
-                  boxShadow: 'none',
-                  border: 'double',
-                  ml: 4,
-                  ':hover': {
-                    background: '#e29399',
-                    cursor: 'pointer',
-                  },
-                }}
-                onClick={onClickConfirm}
-              >
-                確認しました
-              </PrimaryButton>
             </Card>
           );
         })}

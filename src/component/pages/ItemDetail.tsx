@@ -1,25 +1,25 @@
-import { useParams } from "react-router-dom";
-import { FC, memo, useState } from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import { useParams } from 'react-router-dom';
+import { FC, memo, useState } from 'react';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 type Props = {};
 
 const ItemDetail: FC<Props> = memo((props) => {
   const id = useParams();
-  const [postImg, setPostImg] = useState("/********");
+  const [postImg, setPostImg] = useState('/********');
   const navigate = useNavigate();
   const onClickItemDelete = () => {
-    const deleteOrNot = window.confirm("本当に商品を削除しますか？");
+    const deleteOrNot = window.confirm('本当に商品を削除しますか？');
     if (deleteOrNot) {
-      navigate("/home");
+      navigate('/home');
     }
   };
   return (
@@ -34,25 +34,32 @@ const ItemDetail: FC<Props> = memo((props) => {
       </Typography>
       <Box
         sx={{
-          display: { xs: "flex" },
+          display: { xs: 'flex' },
           mb: 3,
         }}
       >
         <Box>
-        <Box sx={{ mr: 10, p: 1, display: "flex", ml: 5, alignItems: "center", width: 600 }}>
-          <p style={{fontSize: "50px" }}>&lt;</p>
-          <CardMedia
-            component="img"
-            image="/item.png"
-            alt="商品画像"
-          />
-          <p style={{fontSize: "50px" }}>&gt;</p>
+          <Box
+            sx={{
+              mr: 10,
+              p: 1,
+              display: 'flex',
+              ml: 5,
+              alignItems: 'center',
+              width: 600,
+            }}
+          >
+            <p style={{ fontSize: '50px' }}>&lt;</p>
+            <CardMedia component="img" image="/item.png" alt="商品画像" />
+            <p style={{ fontSize: '50px' }}>&gt;</p>
+          </Box>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <p>●</p>
+            <p>○</p>
+            <p>○</p>
+          </Box>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "center"}}>
-        <p>●</p><p>○</p><p>○</p>
-        </Box>
-        </Box>
-        
+
         <Box sx={{ mr: 5, width: 500 }}>
           <Typography variant="body1" component="p" sx={{ p: 1 }}>
             商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。
@@ -72,21 +79,21 @@ const ItemDetail: FC<Props> = memo((props) => {
           <Card
             sx={{
               p: 1,
-              backgroundColor: "#ffdead",
-              border: "2px dashed #fff ",
-              boxShadow: " 0 0 0 8px #ffdead",
+              backgroundColor: '#ffdead',
+              border: '2px dashed #fff ',
+              boxShadow: ' 0 0 0 8px #ffdead',
               // width: "100%",
               maxWidth: 500,
               minWidth: 100,
-              display: "flex",
+              display: 'flex',
             }}
           >
-            <Box sx={{ display: "flex" }}>
+            <Box sx={{ display: 'flex' }}>
               <CardContent
                 sx={{
-                  flex: "1 0 auto",
-                  width: "0.7",
-                  overflowY: "scroll",
+                  flex: '1 0 auto',
+                  width: '0.7',
+                  overflowY: 'scroll',
                   height: 200,
                 }}
               >
@@ -104,7 +111,7 @@ const ItemDetail: FC<Props> = memo((props) => {
                 sx={{
                   // height: 200,
                   p: 1,
-                  m: "auto",
+                  m: 'auto',
                   maxWidth: 300,
                   minWidth: 80,
                 }}
@@ -115,25 +122,25 @@ const ItemDetail: FC<Props> = memo((props) => {
           </Card>
           <a
             href="/home/timeline"
-            style={{ marginTop: "10px", display: "block", textAlign: "end" }}
+            style={{ marginTop: '10px', display: 'block', textAlign: 'end' }}
           >
             タイムラインへ移動
           </a>
         </Box>
       </Box>
 
-      <Box sx={{ display: "flex", mr: 5 }}>
+      <Box sx={{ display: 'flex', mr: 5 }}>
         <Button
           key="item_edit_btn"
           href={`/adminhome/itemedit/${id.id}`}
           variant="contained"
           sx={{
             my: 2,
-            color: "white",
-            display: "block",
-            backgroundColor: "#EA6F00",
+            color: 'white',
+            display: 'block',
+            backgroundColor: '#EA6F00',
             fontWeight: 500,
-            ml: "auto",
+            ml: 'auto',
           }}
         >
           商品を編集
@@ -145,9 +152,9 @@ const ItemDetail: FC<Props> = memo((props) => {
           variant="contained"
           sx={{
             my: 2,
-            color: "white",
-            display: "block",
-            backgroundColor: "#b30000",
+            color: 'white',
+            display: 'block',
+            backgroundColor: '#b30000',
             fontWeight: 500,
             ml: 3,
           }}
