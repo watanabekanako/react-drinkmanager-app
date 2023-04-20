@@ -27,10 +27,10 @@ import AccordionMenu from "../accordion/AccordionMenu";
 import { useState } from "react";
 const Header = () => {
   const pages = [
-    { label: "Top", href: "/" },
-    { label: "ご利用ガイド", href: "/" },
-    { label: "投票", href: "/" },
-    { label: "お問い合わせ", href: "/" },
+    { label: "Top", href: "/home" },
+    { label: "ご利用ガイド", href: "/home/guide" },
+    { label: "投票", href: "/home/poll" },
+    { label: "お問い合わせ", href: "/home/contact" },
   ];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -81,7 +81,7 @@ const Header = () => {
         <Typography>こんにちは〇〇さん</Typography>
         <PrimaryButton
           sx={{
-            background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+            background: "#a4c1d7",
             borderRadius: 4,
             marginLeft: 2,
           }}
@@ -91,12 +91,20 @@ const Header = () => {
         <div style={{ marginLeft: "auto" }}>
           <PrimaryButton
             sx={{
-              background: "linear-gradient(95deg, #ffc97a, #ff9900)",
+              background: "#024098",
               borderRadius: 4,
             }}
           >
             管理者用TOP
           </PrimaryButton>
+          {/* <PrimaryButton
+            sx={{
+              background: "#1C2953",
+              borderRadius: 4,
+            }}
+          >
+            管理者用TOP
+          </PrimaryButton> */}
         </div>
       </Paper>
 

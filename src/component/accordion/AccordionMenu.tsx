@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Link } from "@mui/material";
 
 const AccordionMenu = () => {
   const [expanded, setExpanded] = useState(null);
@@ -71,9 +72,11 @@ const AccordionMenu = () => {
           >
             カフェインレス
           </AccordionSummary>
-          <AccordionSummary id="panel2a-header">
-            すべてのコーヒー
-          </AccordionSummary>
+          <Link href="/search">
+            <AccordionSummary id="panel2a-header">
+              すべてのコーヒー
+            </AccordionSummary>
+          </Link>
         </Accordion>
         <Accordion
           expanded={expanded === "panel2"}
@@ -111,7 +114,11 @@ const AccordionMenu = () => {
         </Accordion>
 
         <Accordion sx={{ m: 0 }}>
-          <AccordionSummary id="panel1a-header">すべての商品</AccordionSummary>
+          <Link href="/home/search">
+            <AccordionSummary id="panel1a-header">
+              すべての商品
+            </AccordionSummary>
+          </Link>
         </Accordion>
       </div>
     </>
