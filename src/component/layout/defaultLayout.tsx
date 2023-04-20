@@ -81,6 +81,7 @@ function DefaultLayout({ children }: { children: any }) {
         </Grid>
       </Container>
       {/* チャットボット */}
+
       <Box
         sx={{
           borderRadius: 20,
