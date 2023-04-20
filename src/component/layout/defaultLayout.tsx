@@ -32,7 +32,7 @@ function DefaultLayout({ children }: { children: any }) {
     <React.Fragment>
       <Header />
 
-      <Container maxWidth="xl" sx={{ my: 20 }}>
+      <Container maxWidth="xl" sx={{ my: 10 }}>
         <Grid container spacing={2}>
           <Grid item xs={3}>
             <AccordionMenu />
