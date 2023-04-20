@@ -1,14 +1,12 @@
-import { useParams } from 'react-router-dom';
-import { FC, memo, useState } from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { useParams } from "react-router-dom";
+import { FC, memo, useState } from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import { useNavigate } from "react-router-dom";
+import { ActiveRedButton, ActiveDarkBlueButton } from "../button/Button";
 
 type Props = {};
 
@@ -22,6 +20,11 @@ const ItemDetail: FC<Props> = memo((props) => {
       navigate('/home');
     }
   };
+
+  const onClickItemEdit = () => {
+    navigate(`/adminhome/itemedit/${id.id}`);
+  };
+
   return (
     <>
       <Typography
@@ -34,26 +37,27 @@ const ItemDetail: FC<Props> = memo((props) => {
       </Typography>
       <Box
         sx={{
-          display: { xs: 'flex' },
-          mb: 3,
+          display: { xs: "flex" },
+          mb: 10,
+          alignItems: "center",
         }}
       >
         <Box>
           <Box
             sx={{
-              mr: 10,
+              mr: 15,
               p: 1,
-              display: 'flex',
-              ml: 5,
-              alignItems: 'center',
-              width: 600,
+              display: "flex",
+              ml: 10,
+              alignItems: "center",
+              width: 400,
             }}
           >
-            <p style={{ fontSize: '50px' }}>&lt;</p>
+            <p style={{ fontSize: "50px" }}>&lt;</p>
             <CardMedia component="img" image="/item.png" alt="商品画像" />
-            <p style={{ fontSize: '50px' }}>&gt;</p>
+            <p style={{ fontSize: "50px" }}>&gt;</p>
           </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
             <p>●</p>
             <p>○</p>
             <p>○</p>
@@ -129,38 +133,27 @@ const ItemDetail: FC<Props> = memo((props) => {
         </Box>
       </Box>
 
-      <Box sx={{ display: 'flex', mr: 5 }}>
-        <Button
-          key="item_edit_btn"
-          href={`/adminhome/itemedit/${id.id}`}
-          variant="contained"
-          sx={{
+      <Box sx={{ display: "flex", mr: 5 }}>
+        <ActiveDarkBlueButton
+          event={onClickItemEdit}
+          sxStyle={{
             my: 2,
-            color: 'white',
-            display: 'block',
-            backgroundColor: '#EA6F00',
-            fontWeight: 500,
-            ml: 'auto',
+            ml: "auto",
           }}
         >
           商品を編集
-        </Button>
+        </ActiveDarkBlueButton>
 
-        <Button
-          key="item_delete_btn"
-          onClick={onClickItemDelete}
+        <ActiveRedButton
+          event={onClickItemDelete}
           variant="contained"
-          sx={{
+          sxStyle={{
             my: 2,
-            color: 'white',
-            display: 'block',
-            backgroundColor: '#b30000',
-            fontWeight: 500,
             ml: 3,
           }}
         >
           商品を削除
-        </Button>
+        </ActiveRedButton>
       </Box>
     </>
   );
